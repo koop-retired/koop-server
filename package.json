@@ -1,13 +1,13 @@
 {
   "name": "koop-server",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Guts of Koop ",
   "main": "index.js",
   "scripts": {
     "test": "mocha test/models/"
   },
   "author": "Chris Helm",
-  "license": "BSD-2-Clause",
+  "license": "Apache2",
   "dependencies": {
     "express": "~4.0.0",
     "request": "~2.27.0",
