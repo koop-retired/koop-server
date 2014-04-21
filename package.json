@@ -1,0 +1,14 @@
+{
+  "name": "koop-server",
+  "version": "0.0.0",
+  "description": "Guts of Koop ",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test "
+  },
+  "author": "Chris Helm",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "express": "~4.0.0"
+  }
+}
