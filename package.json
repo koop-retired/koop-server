@@ -22,5 +22,5 @@
     "lodash": "~2.4.1",
     "pg": "~2.11.1"
   },
-  "repository": "git://github.com/Esri/koop-server.git",
+  "repository": "git://github.com/Esri/koop-server.git"
 }
