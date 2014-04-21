@@ -1,11 +1,11 @@
 var should = require('should');
-var fs = require('../../api/models/FeatureServices.js');
+var fs = require('../../lib/FeatureServices.js');
 var data = require('../fixtures/snow.geojson');
 var polyData = require('../fixtures/polygon.geojson');
 
 before(function (done) {
-  Extent = require('../../api/models/Extent.js');
-  Query = require('../../api/models/Query.js');
+  Extent = require('../../lib/Extent.js');
+  Query = require('../../lib/Query.js');
   done();
 });
 

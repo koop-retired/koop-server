@@ -1,9 +1,8 @@
 var should = require('should');
 
 before(function (done) {
-  fs = require('../../api/models/FeatureServices.js');
   esri_json = require('../fixtures/ski.geojson');
-  GeoJSON = require('../../api/models/GeoJSON.js');
+  GeoJSON = require('../../lib/GeoJSON.js');
   done();
 });
 

@@ -1,9 +1,8 @@
 var should = require('should');
 
 before(function (done) {
-  fs = require('../../api/models/FeatureServices.js');
   data = require('../fixtures/5.5.12.geojson');
-  Tiles = require('../../api/models/Tiles.js');
+  Tiles = require('../../lib/Tiles.js');
   done();
 });
 
