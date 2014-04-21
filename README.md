@@ -1,7 +1,7 @@
 # koop-server
-## A Node.js module  
+## A Node.js module for [Koop](https://github.com/Esri/Koop) 
 
-
+koop-server is not meant to be run on its own. It provides the base models and utils needed to support the full [Koop](https://github.com/Esri/Koop) stack. This repo simply exposes an Express App that can be used as middleware within another Express app. This repo is meant to facilitate better modularity within Koop, and is used to test individual koop prodivers that are seperate NPM modules. 
 
 ## Dependencies 
 The following dependencies are needed in order to run Koop on your local machine / server: 
@@ -9,11 +9,19 @@ The following dependencies are needed in order to run Koop on your local machine
 * PostgreSQL / PostGIS - In PostgreSQL 9.3 you can create a PostGIS enabled database by executing `CREATE EXTENSION postgis;` inside an existing database. 
 
 ## Installation
-   ```npm install koop-server```
+  ```npm install koop-server```
 
 ## Usage
 
-koop-server is not meant to be run on its own. It provides the base models and utils needed to support the full [Koop](https://github.com/Esri/Koop) stack. This repo simply exposes an Express App that can be used as middleware within another Express app. This repo is meant to facilitate better modularity within Koop, and is used to test individual koop prodivers that are seperate NPM modules. 
+  ```
+    var express = require('express');
+    var koop = require('koop-server')(config);
+    var app = express();
+    // add koop middleware
+    app.use(koop);
+
+    // rest of your express app setup 
+  ```
 
 ## Tests 
 
