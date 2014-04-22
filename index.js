@@ -4,26 +4,25 @@ var express = require("express");
 
 module.exports = function(config) {
   var app = express();
-  app.set('view engine', 'ejs');
-  app.set('view options', {layout: __dirname + '/views/layout.ejs'});
-
+  
   // serve the index 
   app.get("/", function(req, res, next) {
     res.render(__dirname + '/views/home/index');
   });
 
+
   // register providers into the app
   // sets up models, routes -> controllers/handlers 
   app.register = function(provider){
-    //console.log(provider); 
-    for (var route in provider.routes){
-      var path = route.split(' ');
-      app[path[0]]( path[1], provider.controller[ 
-        provider.routes[ route ].action 
-      ]);
+    if ( provider.name ) {
+      for (var route in provider.routes){
+        var path = route.split(' ');
+        app[path[0]]( path[1], provider.controller[ 
+          provider.routes[ route ].action 
+        ]);
+      }
+      global[provider.name] = provider.model;
     }
-
-    global[provider.name] = provider.model;
   };
 
   return app;
