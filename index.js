@@ -8,7 +8,7 @@ module.exports = function(config) {
   
   // serve the index 
   app.get("/", function(req, res, next) {
-    res.render(__dirname + '/views/home/index');
+    res.render(__dirname + '/views/index');
   });
 
 
