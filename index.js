@@ -1,9 +1,14 @@
-var express = require("express");
-  fs = require('fs');
+var express = require("express"),
+  fs = require('fs'),
+  bodyParser = require('body-parser'),
   koop = require('./lib');
 
 module.exports = function(config) {
   var app = express();
+
+  // handle POST requests 
+  app.use(bodyParser());
+
   app.set('view engine', 'ejs');
   
   // serve the index 
