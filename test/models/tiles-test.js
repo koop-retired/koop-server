@@ -2,6 +2,7 @@ var should = require('should');
 
 before(function (done) {
   data = require('../fixtures/5.5.12.geojson');
+  global.config = {};
   Tiles = require('../../lib/Tiles.js');
   done();
 });
