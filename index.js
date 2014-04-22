@@ -4,6 +4,7 @@ var express = require("express");
 
 module.exports = function(config) {
   var app = express();
+  app.set('view engine', 'ejs');
   
   // serve the index 
   app.get("/", function(req, res, next) {
