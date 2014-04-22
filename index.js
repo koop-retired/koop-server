@@ -16,7 +16,6 @@ module.exports = function(config) {
     res.render(__dirname + '/views/index');
   });
 
-
   // register providers into the app
   // sets up models, routes -> controllers/handlers 
   app.register = function(provider){
@@ -30,6 +29,13 @@ module.exports = function(config) {
       global[provider.name] = provider.model;
     }
   };
+
+  if ( !global.config ){
+    global.config = config
+  }
+
+  global.config.defaultStyle = fs.readFileSync( __dirname + '/templates/renderers/style.mss', 'utf8' );
+ 
 
   return app;
   
