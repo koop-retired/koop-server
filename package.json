@@ -22,7 +22,8 @@
     "topojson": "~1.4.3",
     "nodetiles-core": "0.0.3",
     "lodash": "~2.4.1",
-    "pg": "~2.11.1"
+    "pg": "~2.11.1",
+    "body-parser": "~1.0.2"
   },
   "repository": {
     "type": "git",
