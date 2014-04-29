@@ -1,6 +1,6 @@
 {
   "name": "koop-server",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "Guts of Koop ",
   "main": "index.js",
   "scripts": {
