@@ -20,6 +20,7 @@ module.exports = function(config) {
   // sets up models, routes -> controllers/handlers 
   app.register = function(provider){
     if ( provider.name ) {
+      console.log(provider)
       for (var route in provider.routes){
         var path = route.split(' ');
         app[path[0]]( path[1], provider.controller[ 
