@@ -1,7 +1,7 @@
 var should = require('should');
 
 before(function (done) {
-  data = require('../fixtures/5.5.12.geojson');
+  data = require('../fixtures/co.6.6.24.json'); //5.5.12.geojson');
   global.config = {};
   Tiles = require('../../lib/Tiles.js');
   done();
@@ -22,7 +22,7 @@ describe('Mapnik Tiles Model', function(){
     describe('vector-tiles', function(){
       it('when creating a tile', function(done){
 
-        var file = __dirname + '/../fixtures/5.5.12.vector.pbf',
+        var file = __dirname + '/../fixtures/co.6.6.24.vector.pbf',
           format = 'vector.pbf';
 
         Tiles._stash( file, format, data, 5, 5, 12, function( err, res ){
