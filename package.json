@@ -4,7 +4,8 @@
   "description": "Guts of Koop ",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/models/"
+    "test": "mocha test/models/",
+    "lint": "node_modules/jshint/bin/jshint lib/*"
   },
   "author": {
     "name": "Chris Helm"
@@ -38,6 +39,7 @@
   "_id": "koop-server@0.0.4",
   "_from": "koop-server@*",
   "devDependencies": {
-    "should": "~3.3.2"
+    "should": "~3.3.2",
+    "jshint": "~2.5.1"
   }
 }
