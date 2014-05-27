@@ -39,6 +39,6 @@
   "_id": "koop-server@0.0.4",
   "_from": "koop-server@*",
   "devDependencies": {
-    "should": "~3.3.1"
+    "should": "~3.3.2"
   }
 }
