@@ -4,8 +4,7 @@
   "description": "Guts of Koop ",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/models/",
-    "lint": "node_modules/jshint/bin/jshint lib/*"
+    "test": "node_modules/jshint/bin/jshint lib/* && mocha test/models/"
   },
   "author": {
     "name": "Chris Helm"
