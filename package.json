@@ -1,6 +1,6 @@
 {
   "name": "koop-server",
-  "version": "0.0.36",
+  "version": "0.0.37",
   "description": "Guts of Koop ",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,9 @@
     "lodash": "~2.4.1",
     "pg": "~2.11.1",
     "body-parser": "~1.0.2",
-    "mapnik": "~1.4.3"
+    "mapnik": "~1.4.3",
+    "async": "~0.9.0",
+    "spawn-async": "0.0.1"
   },
   "repository": {
     "type": "git",
