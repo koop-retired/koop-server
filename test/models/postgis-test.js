@@ -89,6 +89,26 @@ describe('PostGIS Model Tests', function(){
           done();
         });
       });
+
+      it('should insert data with no features', function(done){
+        var snowKey = 'test:snow:data';
+        PostGIS.insert( snowKey, {name: 'no-data', geomType: 'Point', features:[]}, 0, function( error, success ){
+          should.not.exist(error);
+          success.should.equal( true );
+          PostGIS.getInfo( snowKey + ':0', function( err, info ){
+            should.not.exist(err);
+            info.name.should.equal('no-data');
+            PostGIS.remove(snowKey+':0', function(err, result){
+              should.not.exist( err );
+              PostGIS.getInfo( snowKey + ':0', function( err, info ){
+                should.exist( err );
+                done();
+              });
+            });
+          });
+        });
+      });
+      
     });
 
 });
