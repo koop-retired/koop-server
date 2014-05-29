@@ -44,8 +44,8 @@ describe('PostGIS Cache Model Tests', function(){
           success.should.equal( true );
           Cache.get('repo', key, {}, function( err, d ){
             should.not.exist(err);
-            should.exist(d[0].sha);
-            d[0].sha.should.equal('e3729d510e786be80126225579214a78cf06e7a1');
+            should.exist(d[0].name);
+            d[0].name.should.equal('snow.geojson');
             done();
           });
         });

@@ -5,7 +5,7 @@ before(function (done) {
   repoData = require('../fixtures/snow2.geojson');
   snowData = require('../fixtures/snow.geojson');
   PostGIS = require('../../lib/PostGIS.js');
-  global.config = {
+  conn = {
     data_dir: '/usr/local/koop/',
     db: { 
       postgis: {
@@ -13,7 +13,7 @@ before(function (done) {
       }
     }
   };
-  PostGIS.connect(global.config.db.postgis.conn, function(){
+  PostGIS.connect(conn.db.postgis.conn, function(){
     done();
   });
 });
