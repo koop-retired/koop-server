@@ -1,10 +1,11 @@
 {
   "name": "koop-server",
-  "version": "0.0.41",
+  "version": "0.0.42",
   "description": "Guts of Koop ",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/jshint/bin/jshint lib/* && mocha test/models/"
+    "test": "node_modules/jshint/bin/jshint lib/* && mocha test/models/",
+    "lint": "node_modules/jshint/bin/jshint lib/*"
   },
   "author": {
     "name": "Chris Helm"
