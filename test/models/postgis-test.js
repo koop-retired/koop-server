@@ -193,10 +193,15 @@ describe('PostGIS Model Tests', function(){
           });
 
         });
+      });
+
+      it('should get count', function(done){
+        PostGIS.getCount(key+':0', function(err, count){
+          count.should.equal(417);
+          done();
         });
       });
       
-    });
 
 });
 
