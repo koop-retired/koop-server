@@ -113,6 +113,7 @@ describe('PostGIS Model Tests', function(){
         var gKey = 'test:german:data';
         var data = require('../fixtures/germany.json');
 
+        PostGIS.remove(gKey+':0', function(err, result){
         PostGIS.insert( gKey, { name: 'german-data', geomType: 'Point', features: data.features }, 0, function( error, success ){
 
           should.not.exist(error);
@@ -134,12 +135,14 @@ describe('PostGIS Model Tests', function(){
           });
           
         });
+        });
       });
 
       it('should query data with many AND filters', function(done){
         var gKey = 'test:german:data2';
         var data = require('../fixtures/germany.json');
 
+        PostGIS.remove(gKey+':0', function(err, result){
         PostGIS.insert( gKey, { name: 'german-data', geomType: 'Point', features: data.features }, 0, function( error, success ){
 
           should.not.exist(error);
@@ -161,21 +164,23 @@ describe('PostGIS Model Tests', function(){
           });
 
         });
+        });
       });
 
       it('should query data with OR filters', function(done){
         var gKey = 'test:german:data3';
         var data = require('../fixtures/germany.json');
 
+        PostGIS.remove(gKey+':0', function(err, result){
         PostGIS.insert( gKey, { name: 'german-data', geomType: 'Point', features: data.features }, 0, function( error, success ){
 
           should.not.exist(error);
           success.should.equal( true );
 
-          PostGIS.select( gKey, { layer: 0, where: 'Land like \'%Germany%\' OR Land like \'%Poland%\'' },            function(err, res){
+          PostGIS.select( gKey, { layer: 0, where: 'ID >= 2894 AND ID <= 3401 AND  (Land = \'Germany\' OR Land = \'Poland\')  AND Art = \'BRL\'' },            function(err, res){
 
             should.not.exist(error);
-            res[0].features.length.should.equal(242);
+            res[0].features.length.should.equal(5);
 
             PostGIS.remove(gKey+':0', function(err, result){
               should.not.exist( err );
@@ -187,6 +192,7 @@ describe('PostGIS Model Tests', function(){
             });
           });
 
+        });
         });
       });
       
