@@ -35,8 +35,8 @@ describe('The Tasker', function(){
       it('should return a pointer to file', function(done){
         var task = {
           format: 'json',
-          dir:'json',
-          key: 'agol:6c4b81eb2aed40d5840b8cb470983844',
+          type:'agol',
+          id: '6c4b81eb2aed40d5840b8cb470983844',
           hash: 'testhash',
           options: {
             layer: 0
