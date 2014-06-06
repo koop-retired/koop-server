@@ -193,6 +193,7 @@ describe('PostGIS Model Tests', function(){
           });
 
         });
+        });
       });
 
       it('should get count', function(done){
@@ -202,60 +203,6 @@ describe('PostGIS Model Tests', function(){
         });
       });
       
-      it('should query data with AND filter', function(done){
-        var gKey = 'test:german:data';
-        var data = require('../fixtures/germany.json');
-
-        PostGIS.insert( gKey, { name: 'german-data', geomType: 'Point', features: data.features }, 0, function( error, success ){
-
-          should.not.exist(error);
-          success.should.equal( true );
-
-          PostGIS.select( gKey, { layer: 0, where: 'ID >= 2894 AND ID <= \'2997\''}, function(err, res){
-
-            should.not.exist(error);
-            res[0].features.length.should.equal(7);
-
-            PostGIS.remove(gKey+':0', function(err, result){
-              should.not.exist( err );
-
-              PostGIS.getInfo( gKey + ':0', function( err, info ){
-                should.exist( err );
-                done();
-              });
-            });
-          });
-          
-        });
-      });
-
-      it('should query data with many AND filters', function(done){
-        var gKey = 'test:german:data2';
-        var data = require('../fixtures/germany.json');
-
-        PostGIS.insert( gKey, { name: 'german-data', geomType: 'Point', features: data.features }, 0, function( error, success ){
-
-          should.not.exist(error);
-          success.should.equal( true );
-
-          PostGIS.select( gKey, { layer: 0, where: 'ID >= 2894 AND ID <= 2997 AND Land like \'%Germany%\' AND Art like \'%BRL%\'' }, function(err, res){
-
-            should.not.exist(error);
-            res[0].features.length.should.equal(2);
-
-            PostGIS.remove(gKey+':0', function(err, result){
-              should.not.exist( err );
-
-              PostGIS.getInfo( gKey + ':0', function( err, info ){
-                should.exist( err );
-                done();
-              });
-            });
-          });
-
-        });
-      });
-      
-
+    });   
 });
 
