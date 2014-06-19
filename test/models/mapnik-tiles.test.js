@@ -1,7 +1,7 @@
 var should = require('should');
 
 before(function (done) {
-  data = require('../fixtures/5.5.12.geojson');
+  data = require('../fixtures/11.geojson');
   //data = require('../fixtures/co.6.13.24.json'); //5.5.12.geojson');
   global.config = {};
   Tiles = require('../../lib/Tiles.js');
@@ -36,9 +36,10 @@ describe('Mapnik Tiles Model', function(){
         var file = __dirname + '/../fixtures/5.5.12.vector.pbf',
           format = 'vector.pbf';
 
-        Tiles._stash( file, format, data, 5, 5, 12, function( err, res ){
+        Tiles._stash( file, format, data, 5, 5, 11, function( err, res ){
           should.not.exist(err);
           should.exist(res);
+          console.log(res)
           done();
         });
       });

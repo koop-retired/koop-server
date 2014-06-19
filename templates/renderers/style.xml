@@ -4,6 +4,11 @@
     <PolygonSymbolizer fill="lightgrey" fill-opacity=".5" />
   </Rule>
 </Style>
+<Style name="multipolygon">
+  <Rule>
+    <PolygonSymbolizer fill="lightgrey" fill-opacity=".5" />
+  </Rule>
+</Style>
 <Style name="point">
   <Rule>
     <MarkersSymbolizer fill="darkgrey" opacity=".5" width="2.5" stroke="white" stroke-width="2" stroke-opacity=".3" placement="point" marker-type="ellipse" allow-overlap="true"/>
