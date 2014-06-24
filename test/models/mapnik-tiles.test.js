@@ -39,7 +39,6 @@ describe('Mapnik Tiles Model', function(){
         Tiles._stash( file, format, data, 5, 5, 11, function( err, res ){
           should.not.exist(err);
           should.exist(res);
-          console.log(res)
           done();
         });
       });
