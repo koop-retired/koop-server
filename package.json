@@ -15,7 +15,7 @@
     "express": "~4.0.0",
     "request": "~2.27.0",
     "terraformer": "1.0.3",
-    "terraformer-arcgis-parser": "1.0.3",
+    "terraformer-arcgis-parser": "1.0.4",
     "terraformer-wkt-parser": "~1.0.0",
     "node-fs": "~0.1.7",
     "sphericalmercator": "~1.0.2",
