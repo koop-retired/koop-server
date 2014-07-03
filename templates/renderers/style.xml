@@ -20,4 +20,10 @@
     <LineSymbolizer stroke="white" stroke-width="1.5" />
   </Rule>
 </Style>
+<Style name="multilinestring">
+  <Rule>
+    <LineSymbolizer stroke="darkgrey" stroke-width="3" />
+    <LineSymbolizer stroke="white" stroke-width="1.5" />
+  </Rule>
+</Style>
 </Map>
