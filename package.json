@@ -42,7 +42,7 @@
   "_id": "koop-server@0.0.4",
   "_from": "koop-server@*",
   "devDependencies": {
-    "should": "~3.3.2",
-    "jshint": "~2.5.1"
+    "jshint": "~2.5.1",
+    "should": "~3.3.2"
   }
 }
