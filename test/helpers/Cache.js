@@ -1,6 +1,9 @@
 var Cache = require('../../lib/Cache.js'),
-  PostGIS = require('../../lib/PostGIS.js');
+  PostGIS = require('../../lib/PostGIS.js'),
+  config = require('config');
 
-Cache.db = PostGIS.connect("postgres://localhost/koopdev");
+global.config = config;
+
+Cache.db = PostGIS.connect(config.db.test.postgis.conn);
 
 module.exports = Cache;
