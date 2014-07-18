@@ -5,7 +5,8 @@ before(function (done) {
   repoData = require('../fixtures/repo.geojson');
   PostGIS = require('../../lib/PostGIS.js');
   Cache = require('../helpers/Cache.js');
-  global.config = {data_dir: '/usr/local/koop/'}
+  config = require("config");
+  global.config = config;
   done();
 });
 
@@ -53,4 +54,3 @@ describe('PostGIS Cache Model Tests', function(){
     });
 
 });
-

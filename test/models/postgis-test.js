@@ -5,15 +5,10 @@ before(function (done) {
   repoData = require('../fixtures/snow2.geojson');
   snowData = require('../fixtures/snow.geojson');
   PostGIS = require('../../lib/PostGIS.js');
-  conn = {
-    data_dir: '/usr/local/koop/',
-    db: { 
-      postgis: {
-        conn: "postgres://localhost/koopdev"
-      }
-    }
-  };
-  PostGIS.connect(conn.db.postgis.conn, function(){
+  config = require('config');
+  global.config = config;
+
+  PostGIS.connect(config.db.test.postgis.conn, function(){
     done();
   });
 });
@@ -133,7 +128,7 @@ describe('PostGIS Model Tests', function(){
               });
             });
           });
-          
+
         });
         });
       });
@@ -202,7 +197,6 @@ describe('PostGIS Model Tests', function(){
           done();
         });
       });
-      
-    });   
-});
 
+    });
+});
