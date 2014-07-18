@@ -4,14 +4,14 @@ before(function (done) {
   key = 'test:repo:file';
   repoData = require('../fixtures/repo.geojson');
   PostGIS = require('../../lib/PostGIS.js');
+  SQLite = require('../../lib/SQLite.js');
   Cache = require('../helpers/Cache.js');
   config = require("config");
   global.config = config;
   done();
 });
 
-describe('PostGIS Cache Model Tests', function(){
-
+describe('Cache Model Tests', function(){
     describe('when caching a github file', function(){
 
       afterEach(function(done){
