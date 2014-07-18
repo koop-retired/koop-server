@@ -16,6 +16,7 @@ data_dir: '/usr/local/koop/'
 #    postgis:
 #      conn: "postgres://localhost/koopdev"
 
+# To use Spatialite, use this config
 db:
   test:
     sqlite:
