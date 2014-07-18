@@ -5,11 +5,16 @@ koop-server is not meant to be run on its own. It provides the base models and u
 
 ## Dependencies 
 The following dependencies are needed in order to run Koop on your local machine / server: 
-* Node.js (version > 0.10.0) 
-* PostgreSQL / PostGIS - In PostgreSQL 9.3 you can create a PostGIS enabled database by executing `CREATE EXTENSION postgis;` inside an existing database. 
+* Node.js (version > 0.10.0)
+* Database
+  * Koop needs a database to act as a cache for data in production we use PostGIS but for local development we use Spatiallite 
+  * To use PostgreSQL / PostGIS. You'll need to install PostgreSQL with PostGIS. In PostgreSQL 9.3 you can create a PostGIS enabled database by executing `CREATE EXTENSION postgis;` inside an existing database. 
 
 ## Installation
   ```npm install koop-server```
+  
+## Configuration 
+  * The file `config/default.yml.example` is an example config template that needs to be copied to `config/default.yml` and edited to match your local env settings. In most cases the only change will be the name of the PostGIS database. For Spatialite there will probably not be a need to change anything.
 
 ## Usage
 
