@@ -50,7 +50,7 @@ module.exports = function( config ) {
 
   // TODO this is hack that acts like the global scope 
   // this will go away once a better way to access a central filesystem gets written
-  Koop.config.config;
+  Koop.config = config;
 
   return app;
   
