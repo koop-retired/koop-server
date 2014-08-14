@@ -21,8 +21,8 @@ module.exports = function( config ) {
   app.register = function(provider){
     // only register if the provider has a name 
     if ( provider.name ) {
-      
-      app[ provider.name ] = new provider.controller( Koop.Cache );
+
+      app[ provider.name ] = new provider.controller( Koop );
     
       for (var route in provider.routes){
         var path = route.split(' ');
@@ -44,6 +44,13 @@ module.exports = function( config ) {
     console.log('Exiting since no DB configuration found in config');
     process.exit();
   }
+  
+  // store the data_dir in the cache
+  Koop.Cache.data_dir = config.data_dir;
+
+  // TODO this is hack that acts like the global scope 
+  // this will go away once a better way to access a central filesystem gets written
+  Koop.config.config;
 
   return app;
   
