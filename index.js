@@ -1,7 +1,7 @@
 var express = require("express"),
   fs = require('fs'),
   bodyParser = require('body-parser'),
-  Koop = require('./lib');
+  koop = require('./lib');
 
 module.exports = function( config ) {
   var app = express();
@@ -22,7 +22,7 @@ module.exports = function( config ) {
     // only register if the provider has a name 
     if ( provider.name ) {
 
-      app[ provider.name ] = new provider.controller( Koop );
+      app[ provider.name ] = new provider.controller( koop );
     
       for (var route in provider.routes){
         var path = route.split(' ');
@@ -36,21 +36,43 @@ module.exports = function( config ) {
   // Start the Cache DB with the conn string from config
   if ( config && config.db ) {
     if ( config.db.postgis ){
-      Koop.Cache.db = Koop.PostGIS.connect( config.db.postgis.conn );
+      koop.Cache.db = koop.PostGIS.connect( config.db.postgis.conn );
     } else if ( config && config.db.sqlite ) {
-      Koop.Cache.db = Koop.SQLite.connect( config.db.sqlite );
+      koop.Cache.db = koop.SQLite.connect( config.db.sqlite );
     }
   } else if (config && !config.db){
     console.log('Exiting since no DB configuration found in config');
     process.exit();
   }
   
-  // store the data_dir in the cache
-  Koop.Cache.data_dir = config.data_dir || __dirname;
+  // store the data_dir in the cache, tiles, thumbnails
+  // TODO all writing to the filesystem needs to over hauled and centralized.
+  var data_dir = config.data_dir || __dirname;
+  koop.Cache.data_dir = data_dir;
+  koop.Tiles.data_dir = data_dir;
+  koop.Thumbnail.data_dir = data_dir;
 
   // TODO this is hack that acts like the global scope 
   // this will go away once a better way to access a central filesystem gets written
-  Koop.config = config;
+  koop.config = config;
+
+  // We need to configure an async worker to handle exports
+  // A bunyan log is required for the async workers 
+  var log = new bunyan({
+    'name': 'koop-log',
+    streams: [{
+      type: 'rotating-file',
+      path: config.logfile || __dirname + '/koop.log',
+      period: '1d',
+      count: 3
+    }]
+  });
+
+  // allow us to kick off system commands w/o blocking
+  var worker = spawnasync.createWorker({'log': log});
+
+  // Need the exporter to have access to the cache so we pass it Koop
+  koop.exporter = new koop.Exporter( koop.Cache, worker );
 
   return app;
   
