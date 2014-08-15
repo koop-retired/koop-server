@@ -1,6 +1,8 @@
 var express = require("express"),
   fs = require('fs'),
   bodyParser = require('body-parser'),
+  spawnasync = require('spawn-async'),
+  bunyan = require('bunyan'),
   koop = require('./lib');
 
 module.exports = function(config) {
