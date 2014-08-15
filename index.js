@@ -33,20 +33,20 @@ module.exports = function( config ) {
     }
   };
 
-   // Start the Cache DB with the conn string from config
-  if ( config.db ) {
+  // Start the Cache DB with the conn string from config
+  if ( config && config.db ) {
     if ( config.db.postgis ){
       Koop.Cache.db = Koop.PostGIS.connect( config.db.postgis.conn );
-    } else if ( config.db.sqlite ) {
+    } else if ( config && config.db.sqlite ) {
       Koop.Cache.db = Koop.SQLite.connect( config.db.sqlite );
     }
-  } else {
+  } else if (config && !config.db){
     console.log('Exiting since no DB configuration found in config');
     process.exit();
   }
   
   // store the data_dir in the cache
-  Koop.Cache.data_dir = config.data_dir;
+  Koop.Cache.data_dir = config.data_dir || __dirname;
 
   // TODO this is hack that acts like the global scope 
   // this will go away once a better way to access a central filesystem gets written
