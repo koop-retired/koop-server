@@ -54,10 +54,6 @@ module.exports = function(config) {
   koop.Tiles.data_dir = data_dir;
   koop.Thumbnail.data_dir = data_dir;
 
-  // TODO this is hack that acts like the global scope 
-  // this will go away once a better way to access a central filesystem gets written
-  koop.config = config;
-
   // We need to configure an async worker to handle exports
   // A bunyan log is required for the async workers 
   var log = new bunyan({
