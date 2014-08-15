@@ -5,9 +5,11 @@ before(function (done) {
   repoData = require('../fixtures/repo.geojson');
   PostGIS = require('../../lib/PostGIS.js');
   SQLite = require('../../lib/SQLite.js');
-  Cache = require('../helpers/Cache.js');
-  config = require("config");
-  global.config = config;
+
+  CacheHelper = require('../helpers/Cache.js');
+  Cache = CacheHelper.cache;
+  config = CacheHelper.config;
+
   done();
 });
 
