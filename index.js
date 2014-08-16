@@ -29,7 +29,7 @@ module.exports = function( config ) {
       for (var route in provider.routes){
         var path = route.split(' ');
         app[path[0]]( path[1], app[ provider.name ][ 
-          provider.routes[ route ].action 
+          provider.routes[ route ] 
         ]);
       }
     }
