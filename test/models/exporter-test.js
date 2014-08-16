@@ -1,28 +1,15 @@
 var should = require('should'),
   fs = require('fs');
-  spawnasync = require('spawn-async'),
-  bunyan = require('bunyan');
 
 var snowData, exporter;
 
 before(function (done) {
-  data_dir: __dirname + '/output/'
-  
-  var log = new bunyan({
-    'name': 'test-log',
-    streams: [{
-      type: 'rotating-file',
-      path: __dirname + '/output/log.txt',
-      period: '1d',
-      count: 3
-    }]
-  });
-  var worker = spawnasync.createWorker({'log': log});
-
+  var Cache = {
+    data_dir: __dirname + '/output/'
+  };
   snowData = require('../fixtures/snow.geojson');
-
   var Exporter = require('../../lib/Exporter.js');
-  exporter = new Exporter( Cache, worker );
+  exporter = new Exporter( Cache );
   done();
 });
 
