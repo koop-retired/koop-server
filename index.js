@@ -1,8 +1,6 @@
 var express = require("express"),
   fs = require('fs'),
   bodyParser = require('body-parser'),
-  spawnasync = require('spawn-async'),
-  bunyan = require('bunyan'),
   koop = require('./lib');
 
 module.exports = function( config ) {
@@ -24,8 +22,10 @@ module.exports = function( config ) {
     // only register if the provider has a name 
     if ( provider.name ) {
 
+      // save the provider onto the app
       app[ provider.name ] = new provider.controller( koop );
-    
+   
+      // bind each route in the provider 
       for (var route in provider.routes){
         var path = route.split(' ');
         app[path[0]]( path[1], app[ provider.name ][ 
@@ -37,7 +37,7 @@ module.exports = function( config ) {
 
   // Start the Cache DB with the conn string from config
   if ( config && config.db ) {
-    if ( config.db.postgis ){
+    if ( config.db.postgis ) {
       koop.Cache.db = koop.PostGIS.connect( config.db.postgis.conn );
     } else if ( config && config.db.sqlite ) {
       koop.Cache.db = koop.SQLite.connect( config.db.sqlite );
@@ -54,23 +54,8 @@ module.exports = function( config ) {
   koop.Tiles.data_dir = data_dir;
   koop.Thumbnail.data_dir = data_dir;
 
-  // We need to configure an async worker to handle exports
-  // A bunyan log is required for the async workers 
-  var log = new bunyan({
-    'name': 'koop-log',
-    streams: [{
-      type: 'rotating-file',
-      path: config.logfile || __dirname + '/koop.log',
-      period: '1d',
-      count: 3
-    }]
-  });
-
-  // allow us to kick off system commands w/o blocking
-  var worker = spawnasync.createWorker({'log': log});
-
   // Need the exporter to have access to the cache so we pass it Koop
-  koop.exporter = new koop.Exporter( koop.Cache, worker );
+  koop.exporter = new koop.Exporter( koop.Cache );
 
   return app;
   
