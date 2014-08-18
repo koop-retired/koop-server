@@ -4,7 +4,7 @@ var express = require("express"),
   koop = require('./lib');
 
 module.exports = function(config) {
-  var app = express();
+  var app = express(), route, controller, model;
 
   // handle POST requests 
   app.use(bodyParser());
@@ -23,17 +23,30 @@ module.exports = function(config) {
     if ( provider.name ) {
 
       // save the provider onto the app
-      app[ provider.name ] = new provider.controller( koop );
+      model = new provider.model( koop );
+
+      // pass the model to the controller
+      controller = new provider.controller( model );
+
+      // add each route
+      app._bindRoutes( provider.routes, controller );
    
       // bind each route in the provider 
-      for (var route in provider.routes){
-        var path = route.split(' ');
-        app[path[0]]( path[1], app[ provider.name ][ 
-          provider.routes[ route ] 
-        ]);
-      }
+      //for ( route in provider.routes ){
+      //  var path = route.split(' ');
+      //  app[ path[0] ]( path[1], controller[ provider.routes[ route ] ]);
+      //}
     }
   };
+
+  // bind each route in a list to controller handler
+  app._bindRoutes = function( routes, controller ){
+    for ( route in routes ){
+      var path = route.split(' ');
+      app[ path[0] ]( path[1], controller[ routes[ route ] ]);
+    }
+  };
+
 
   // Start the Cache DB with the conn string from config
   if ( config && config.db ) {
