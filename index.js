@@ -90,12 +90,14 @@ module.exports = function(config) {
   // store the data_dir in the cache, tiles, thumbnails
   // TODO all writing to the filesystem needs to over hauled and centralized.
   var data_dir = config.data_dir || __dirname;
+  koop.data_dir = data_dir;
   koop.Cache.data_dir = data_dir;
   koop.Tiles.data_dir = data_dir;
   koop.Thumbnail.data_dir = data_dir;
 
   // Need the exporter to have access to the cache so we pass it Koop
-  koop.exporter = new koop.Exporter( koop.Cache );
+  koop.exporter = new koop.Exporter( koop );
+  koop.exporter.check();
 
   return app;
   
