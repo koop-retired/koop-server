@@ -28,7 +28,8 @@
     "mv": "~2.0.0",
     "sql-parser": "~0.4.0",
     "spatialite": "0.0.5",
-    "mapnik-pool": "0.0.0"
+    "mapnik-pool": "0.0.0",
+    "winston": "~0.7.3"
   },
   "repository": {
     "type": "git",
