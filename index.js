@@ -6,6 +6,15 @@ var express = require("express"),
 module.exports = function(config) {
   var app = express(), route, controller, model;
 
+  // init the koop log based on config params 
+  koop.log = new koop.Logger( config );
+
+  // log every request
+  app.use(function(req, res, next) {
+    koop.log.info("%s %s", req.method, req.url);
+    next();
+  });
+
   // handle POST requests 
   app.use(bodyParser());
 
@@ -28,16 +37,34 @@ module.exports = function(config) {
       // pass the model to the controller
       controller = new provider.controller( model );
 
-      // add each route
+      // binds a series of standard routes
+      if ( provider.name && provider.pattern ) {
+        app._bindDefaultRoutes(provider.name, provider.pattern, controller );
+      }
+
+      // add each route, the routes let us override defaults etc. 
       app._bindRoutes( provider.routes, controller );
-   
-      // bind each route in the provider 
-      //for ( route in provider.routes ){
-      //  var path = route.split(' ');
-      //  app[ path[0] ]( path[1], controller[ provider.routes[ route ] ]);
-      //}
     }
   };
+
+  var defaultRoutes = {
+    'featureserver': ['/FeatureServer/:layer/:method', '/FeatureServer/:layer', '/FeatureServer'],
+    'preview':['/preview'],
+    'drop':['/drop']
+  };  
+
+  // assigns a series of default routes; assumes 
+  app._bindDefaultRoutes = function( name, pattern, controller ){
+    var routes, handler;
+    for ( handler in defaultRoutes ){
+      if ( controller[ handler ] ){
+        defaultRoutes[ handler ].forEach(function(route){
+          app[ 'get' ]( '/'+ name + pattern + route, controller[ handler ]);
+        });
+      }
+    }
+  };
+
 
   // bind each route in a list to controller handler
   app._bindRoutes = function( routes, controller ){
