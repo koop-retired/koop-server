@@ -11,7 +11,7 @@ module.exports = function( config ) {
 
   // log every request
   app.use(function(req, res, next) {
-    koop.log.info("%s %s", req.method, req.url);
+    koop.log.debug("%s %s", req.method, req.url);
     next();
   });
 
