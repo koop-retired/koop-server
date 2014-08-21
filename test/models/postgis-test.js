@@ -145,7 +145,7 @@ describe('PostGIS Model Tests', function(){
             should.not.exist(error);
             success.should.equal( true );
 
-            PostGIS.select( gKey, { layer: 0, where: 'ID >= 2894 AND ID <= 2997 AND Land like \'%Germany%\' AND Art like \'%BRL%\'' }, function(err, res){
+            PostGIS.select( gKey, { layer: 0, where: 'ID >= 2894 AND ID <= 2997 AND Land like \'%germany%\' AND Art like \'%BRL%\'' }, function(err, res){
 
               should.not.exist(error);
               res[0].features.length.should.equal(2);
