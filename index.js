@@ -31,7 +31,7 @@ module.exports = function(config) {
   };
 
   if ( !global.config ){
-    global.config = config
+    global.config = config;
   }
 
   global.config.defaultStyle = fs.readFileSync( __dirname + '/templates/renderers/style.mss', 'utf8' );
