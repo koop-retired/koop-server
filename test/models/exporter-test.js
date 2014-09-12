@@ -9,7 +9,7 @@ before(function (done) {
   };
   snowData = require('../fixtures/snow.geojson');
   var Exporter = require('../../lib/Exporter.js');
-  exporter = new Exporter( Cache );
+  exporter = new Exporter( {Cache: Cache} );
   done();
 });
 
