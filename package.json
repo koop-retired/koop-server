@@ -41,7 +41,12 @@
   "_id": "koop-server@0.0.4",
   "_from": "koop-server@*",
   "devDependencies": {
+    "gulp": "^3.8.8",
+    "gulp-escomplex": "^1.0.0",
+    "gulp-escomplex-reporter-html": "^1.0.0",
+    "gulp-jshint": "^1.8.4",
     "jshint": "~2.5.1",
+    "jshint-stylish": "^0.4.0",
     "should": "~3.3.2"
   }
 }
