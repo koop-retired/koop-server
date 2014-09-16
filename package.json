@@ -29,7 +29,8 @@
     "mv": "~2.0.0",
     "sql-parser": "~0.4.0",
     "bunyan": "~0.23.1",
-    "spatialite": "0.0.5"
+    "spatialite": "0.0.5",
+    "mapnik-pool": "0.0.0"
   },
   "repository": {
     "type": "git",
