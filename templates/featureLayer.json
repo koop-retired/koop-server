@@ -3,7 +3,7 @@
 	"id" : 0,
 	"name" : "Not Set",
 	"type" : "Feature Layer",
-	"displayField" : "name",
+	"displayField" : "id",
 	"description" : "",
 	"copyrightText" : "",
 	"defaultVisibility": true,
