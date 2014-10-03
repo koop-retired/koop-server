@@ -203,10 +203,10 @@ describe('PostGIS Model Tests', function(){
             should.not.exist(error);
             success.should.equal( true );
 
-            PostGIS.select( gKey, { layer: 0, geometry: '-180,-90,180,90' }, function(err, res){
+            PostGIS.select( gKey, { layer: 0, geometry: '11.296916335529545,50.976109119993865,14.273970437121521,52.39566469623532' }, function(err, res){
 
               should.not.exist(error);
-              res[0].features.length.should.equal(2);
+              res[0].features.length.should.equal(26);
 
               PostGIS.remove(gKey+':0', function(err, result){
                 should.not.exist( err );
