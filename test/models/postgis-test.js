@@ -193,6 +193,35 @@ describe('PostGIS Model Tests', function(){
           });
         });
 
+        it('should correctly query data with geometry filter', function(done){
+          var gKey = 'test:german:data2';
+          var data = require('../fixtures/germany.json');
+
+          PostGIS.remove(gKey+':0', function(err, result){
+          PostGIS.insert( gKey, { name: 'german-data', geomType: 'Point', features: data.features }, 0, function( error, success ){
+
+            should.not.exist(error);
+            success.should.equal( true );
+
+            PostGIS.select( gKey, { layer: 0, geometry: '11.296916335529545,50.976109119993865,14.273970437121521,52.39566469623532' }, function(err, res){
+
+              should.not.exist(error);
+              res[0].features.length.should.equal(26);
+
+              PostGIS.remove(gKey+':0', function(err, result){
+                should.not.exist( err );
+
+                PostGIS.getInfo( gKey + ':0', function( err, info ){
+                  should.exist( err );
+                  done();
+                });
+              });
+            });
+
+          });
+          });
+        });
+
         it('should get count', function(done){
           PostGIS.getCount(key+':0', {}, function(err, count){
             count.should.equal(417);
