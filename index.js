@@ -97,6 +97,12 @@ module.exports = function( config ) {
   // Need the exporter to have access to the cache so we pass it Koop
   koop.exporter = new koop.Exporter( koop );
 
+  koop.files = new koop.Files( config );
+
+  koop.files.exists('paths to files', function(err, exists){
+    console.log('exists!!', err, exists);
+  });
+
   return app;
   
 };

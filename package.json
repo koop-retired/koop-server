@@ -29,7 +29,8 @@
     "sql-parser": "~0.4.0",
     "spatialite": "0.0.5",
     "mapnik-pool": "0.0.0",
-    "winston": "~0.7.3"
+    "winston": "~0.7.3",
+    "aws-sdk": "~2.0.0"
   },
   "repository": {
     "type": "git",
