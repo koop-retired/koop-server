@@ -86,7 +86,11 @@ module.exports = function( config ) {
     console.log('Exiting since no DB configuration found in config');
     process.exit();
   }
-  
+ 
+  // init koop centralized file access  
+  // this allows us to turn the FS access off globally
+  koop.files = new koop.Files( config );
+
   // store the data_dir in the cache, tiles, thumbnails
   // TODO all writing to the filesystem needs to over hauled and centralized.
   var data_dir = config.data_dir || __dirname;
@@ -97,11 +101,6 @@ module.exports = function( config ) {
   // Need the exporter to have access to the cache so we pass it Koop
   koop.exporter = new koop.Exporter( koop );
 
-  koop.files = new koop.Files( config );
-
-  koop.files.exists('paths to files', function(err, exists){
-    console.log('exists!!', err, exists);
-  });
 
   return app;
   
