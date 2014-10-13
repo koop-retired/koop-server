@@ -6,14 +6,16 @@ var express = require("express"),
 module.exports = function( config ) {
   var app = express(), route, controller, model;
 
+  koop.config = config;
+
   // init the koop log based on config params 
   koop.log = new koop.Logger( config );
 
   // log every request
-  app.use(function(req, res, next) {
-    koop.log.debug("%s %s", req.method, req.url);
-    next();
-  });
+  //app.use(function(req, res, next) {
+    //koop.log.debug("%s %s", req.method, req.url);
+    //next();
+  //});
 
   // handle POST requests 
   app.use(bodyParser());
@@ -73,7 +75,15 @@ module.exports = function( config ) {
       app[ path[0] ]( path[1], controller[ routes[ route ] ]);
     }
   };
-
+  
+  // init koop centralized file access  
+  // this allows us to turn the FS access off globally
+  koop.files = new koop.Files( config );
+  koop.tiles = new koop.Tiles( koop );
+  koop.thumbnail = new koop.Thumbnail( koop );
+  // Need the exporter to have access to the cache so we pass it Koop
+  koop.exporter = new koop.Exporter( koop );
+  koop.Cache = new koop.DataCache( koop );
 
   // Start the Cache DB with the conn string from config
   if ( config && config.db ) {
@@ -82,25 +92,12 @@ module.exports = function( config ) {
     } else if ( config && config.db.sqlite ) {
       koop.Cache.db = koop.SQLite.connect( config.db.sqlite );
     }
+    koop.Cache.db.log = koop.log;
   } else if (config && !config.db){
     console.log('Exiting since no DB configuration found in config');
     process.exit();
   }
  
-  // init koop centralized file access  
-  // this allows us to turn the FS access off globally
-  koop.files = new koop.Files( config );
-
-  // store the data_dir in the cache, tiles, thumbnails
-  // TODO all writing to the filesystem needs to over hauled and centralized.
-  var data_dir = config.data_dir || __dirname;
-  koop.Cache.data_dir = data_dir;
-  koop.Tiles.data_dir = data_dir;
-  koop.Thumbnail.data_dir = data_dir;
-
-  // Need the exporter to have access to the cache so we pass it Koop
-  koop.exporter = new koop.Exporter( koop );
-
 
   return app;
   
