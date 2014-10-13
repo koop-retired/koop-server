@@ -1,6 +1,6 @@
 var express = require("express"),
-  fs = require('fs'),
   bodyParser = require('body-parser'),
+  git = require('git-rev-sync'),
   koop = require('./lib');
 
 module.exports = function( config ) {
@@ -16,6 +16,9 @@ module.exports = function( config ) {
     //koop.log.debug("%s %s", req.method, req.url);
     //next();
   //});
+
+  // store the sha so we know what version of koop this is 
+  app.sha = git.long();
 
   // handle POST requests 
   app.use(bodyParser());
