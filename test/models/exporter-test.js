@@ -1,7 +1,7 @@
 var should = require('should'),
   fs = require('fs');
 
-var snowData, exporter;
+var snowData, exporter, koop;
 
 before(function (done) {
   var Cache = {
@@ -9,7 +9,9 @@ before(function (done) {
   };
   snowData = require('../fixtures/snow.geojson');
   var Exporter = require('../../lib/Exporter.js');
-  exporter = new Exporter( {Cache: Cache} );
+  koop = require('../../lib/index');
+  koop.files = require('../../lib/Files.js')( {} );
+  exporter = new Exporter( koop );
   done();
 });
 

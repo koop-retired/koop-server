@@ -8,7 +8,7 @@ before(function (done) {
 });
 
 describe('Files', function(){
-/*
+
     describe('when initializing files', function(){
       it('local and S3 storage should be false when nothing is configured', function(done){
         // init with an empty dir 
@@ -214,7 +214,6 @@ describe('Files', function(){
       });
     });
 
-*/
     // ------------------- REMOVE DIR --------------------
 
     describe('when removing a dir', function(){
@@ -226,11 +225,10 @@ describe('Files', function(){
         files.write( subdir, name, JSON.stringify({"say":"yes"}), function( err, success ){
           should.not.exist( err );
           files.removeDir(subdir, function(err, success){
-            console.log(err, success)
-            //files.exists( subdir, name, function( exists ){
-            //  exists.should.equal( false );
+            files.exists( subdir, name, function( exists ){
+              exists.should.equal( false );
               done();
-            //});
+            });
           });
         });
       });

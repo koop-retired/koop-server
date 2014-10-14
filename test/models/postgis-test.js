@@ -7,12 +7,22 @@ before(function (done) {
   repoData = require('../fixtures/snow2.geojson');
   snowData = require('../fixtures/snow.geojson');
   PostGIS = require('../../lib/PostGIS.js');
+  koop = require('../../lib/index');
+  config = require('config');
+
+  config.logfile = __dirname + "/../test.log";
+
+  // init the koop log based on config params 
+  koop.log = new koop.Logger( config );
+
   if (!config.db.test.postgis)
     done();
   else
     PostGIS.connect(config.db.test.postgis.conn, function(){
       done();
     });
+
+  PostGIS.log = koop.log;
 });
 
 describe('PostGIS Model Tests', function(){
