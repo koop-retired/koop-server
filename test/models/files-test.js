@@ -8,7 +8,7 @@ before(function (done) {
 });
 
 describe('Files', function(){
-
+/*
     describe('when initializing files', function(){
       it('local and S3 storage should be false when nothing is configured', function(done){
         // init with an empty dir 
@@ -197,19 +197,40 @@ describe('Files', function(){
 
       it('with s3 storage and subdir', function(done){
         var bucket = 'chelm-koop-shoot-local',
-          dir = 'test-rm',
+          dir = '/test-rm',
           name = 'test-rm.json';
 
         var files = new Files( { s3: { bucket: 'chelm-koop-shoot-local'} } );
         files.write( dir, name, JSON.stringify({"say":"hello goodbye"}), function( err, success ){
           should.not.exist( err );
-    
-          files.remove( dir, name, function( err, success ){ 
+          files.remove( dir, name, function( err, success ){
             files.exists( dir, name, function( exists ){
               //console.log(exists);
               exists.should.equal( false );
               done();
             });
+          });
+        });
+      });
+    });
+
+*/
+    // ------------------- REMOVE DIR --------------------
+
+    describe('when removing a dir', function(){
+      it('with local storage', function(done){
+        var dir = __dirname + '/output',
+          subdir = 'subdir',
+          name = 'test2.json';
+        var files = new Files( { s3: { bucket: 'chelm-koop-shoot-local'} } );
+        files.write( subdir, name, JSON.stringify({"say":"yes"}), function( err, success ){
+          should.not.exist( err );
+          files.removeDir(subdir, function(err, success){
+            console.log(err, success)
+            //files.exists( subdir, name, function( exists ){
+            //  exists.should.equal( false );
+              done();
+            //});
           });
         });
       });
