@@ -10,7 +10,7 @@ before(function (done) {
   snowData = require('../fixtures/snow.geojson');
   var Exporter = require('../../lib/Exporter.js');
   koop = require('../../lib/index');
-  koop.files = require('../../lib/Files.js')( {} );
+  koop.files = require('../../lib/Files.js')( { config: {} } );
   exporter = new Exporter( koop );
   done();
 });
