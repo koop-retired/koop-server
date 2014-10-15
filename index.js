@@ -81,7 +81,7 @@ module.exports = function( config ) {
   
   // init koop centralized file access  
   // this allows us to turn the FS access off globally
-  koop.files = new koop.Files( config );
+  koop.files = new koop.Files( koop );
   koop.tiles = new koop.Tiles( koop );
   koop.thumbnail = new koop.Thumbnail( koop );
   // Need the exporter to have access to the cache so we pass it Koop
