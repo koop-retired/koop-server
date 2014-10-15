@@ -1,9 +1,9 @@
 var should = require('should'),
+  koop = require('../../lib/index');
   Files = require('../../lib/Files.js');
 
 before(function (done) {
-  var config = {};
-  files = new Files(config);
+  koop.config = {};
   done();
 });
 
@@ -12,7 +12,7 @@ describe('Files', function(){
     describe('when initializing files', function(){
       it('local and S3 storage should be false when nothing is configured', function(done){
         // init with an empty dir 
-        var files = new Files( {} );
+        var files = new Files( koop );
         files.localDir.should.equal( false );
         files.s3Bucket.should.equal( false );
         done();
@@ -20,7 +20,7 @@ describe('Files', function(){
       it('local storage should be configured when passing a local dir', function(done){
         // init with a local dir 
         var dir = __dirname + '/output' 
-        var files = new Files( { data_dir: dir } );
+        var files = new Files( { config: { data_dir: dir } });
         files.localDir.should.equal( dir );
         files.s3Bucket.should.equal( false );
         done();
@@ -29,7 +29,7 @@ describe('Files', function(){
         // init with a local dir 
         var dir = __dirname + '/output',
           bucket = 'test-bucket';
-        var files = new Files( { data_dir: dir, s3: { bucket: bucket } } );
+        var files = new Files( { config: { data_dir: dir, s3: { bucket: bucket } } });
         files.localDir.should.equal( dir );
         files.s3Bucket.should.equal( bucket );
         done();
@@ -41,7 +41,7 @@ describe('Files', function(){
     describe('when checking if a file exists', function(){
       it('with local storage a non-existant', function(done){
         var dir = __dirname + '/output';
-        var files = new Files( { data_dir: dir } );
+        var files = new Files( { config: { data_dir: dir } });
         files.exists( null, 'dummy.png', function( exists ){
           exists.should.equal( false );
           done();
@@ -49,14 +49,14 @@ describe('Files', function(){
       });
       it('with local storage and existing', function(done){
         var dir = __dirname + '/../fixtures';
-        var files = new Files( { data_dir: dir } );
+        var files = new Files( { config: { data_dir: dir } });
         files.exists( null, 'repo.geojson', function( exists ){
           exists.should.equal( true );
           done();
         });
       });
       it('with s3 storage a non-existant', function(done){
-        var files = new Files( { s3: { bucket: 'chelm-koop-shoot-local'} } );
+        var files = new Files( { config: { s3: { bucket: 'chelm-koop-shoot-local'} } });
         files.exists( null, 'dummy.png', function( exists ){
           exists.should.equal( false );
           done();
@@ -70,7 +70,7 @@ describe('Files', function(){
     describe('when getting the path to a file', function(){
       it('should error with local storage and a non-existant file', function(done){
         var dir = __dirname + '/output';
-        var files = new Files( { data_dir: dir } );
+        var files = new Files( { config: { data_dir: dir } });
         files.path( null, 'dummy.png', function( err, path ){
           should.exist( err );
           done();
@@ -78,7 +78,7 @@ describe('Files', function(){
       });
       it('should return the path with local storage and an existing file', function(done){
         var dir = __dirname + '/../fixtures';
-        var files = new Files( { data_dir: dir } );
+        var files = new Files( { config: { data_dir: dir } });
         files.path( null, 'repo.geojson', function( err, path){
           should.not.exist(err);
           should.exist(path);
@@ -86,7 +86,7 @@ describe('Files', function(){
         });
       });
       it('should error with s3 storage and a non-existant file', function(done){
-        var files = new Files( { s3: { bucket: 'chelm-koop-shoot-local'} } );
+        var files = new Files( { config: { s3: { bucket: 'chelm-koop-shoot-local'} } });
         files.path( null, 'dummy.png', function( err, path ){
           should.exist(err);
           should.not.exist(path);
@@ -94,7 +94,7 @@ describe('Files', function(){
         });
       });
       it('should return url with s3 storage and an existing file', function(done){
-        var files = new Files( { s3: { bucket: 'chelm-koop-shoot-local'} } );
+        var files = new Files( { config: { s3: { bucket: 'chelm-koop-shoot-local'} } });
         files.path( 'test', 'test.json', function( err, path ){
           should.not.exist(err);
           should.exist(path);
@@ -109,7 +109,7 @@ describe('Files', function(){
     describe('when reading a file', function(){
       it('with local storage', function(done){
         var dir = __dirname + '/../fixtures';
-        var files = new Files( { data_dir: dir } );
+        var files = new Files( { config: { data_dir: dir } });
         files.read( null, 'repo.geojson', function( err, data ){
           should.not.exist( err );
           should.exist( data );
@@ -125,7 +125,7 @@ describe('Files', function(){
       it('with local storage', function(done){
         var dir = __dirname + '/output',
           name = 'test.json';
-        var files = new Files( { data_dir: dir } );
+        var files = new Files( { config: { data_dir: dir } });
         files.write( null, name, JSON.stringify({"say":"yes"}), function( err, success ){
           should.not.exist( err );
           files.exists( null, name, function( exists ){
@@ -138,7 +138,7 @@ describe('Files', function(){
       it('with s3 storage', function(done){
         var name = 'test.json',
           dir = null;
-        var files = new Files( { s3: { bucket: 'chelm-koop-shoot-local'} } );
+        var files = new Files( { config: { s3: { bucket: 'chelm-koop-shoot-local'} } });
         files.write( dir, name, JSON.stringify({"say":"yes"}), function( err, success ){
           should.not.exist( err );
           files.exists( dir, name, function( exists ){
@@ -153,7 +153,7 @@ describe('Files', function(){
           name = 'test.json',
           subdir = 'testfiles';
         
-        var files = new Files( { data_dir: dir } );
+        var files = new Files( { config: { data_dir: dir } });
         files.write( subdir, name, JSON.stringify({"say":"yes"}), function( err, success ){
           should.not.exist( err );
           files.exists( subdir, name, function( exists ){
@@ -167,7 +167,7 @@ describe('Files', function(){
           dir = 'test',
           name = 'test.json';
         
-        var files = new Files( { s3: { bucket: bucket } } );
+        var files = new Files( { config: { s3: { bucket: bucket } } });
         files.write( dir, name, JSON.stringify({"say":"yes"}), function( err, success ){
           should.not.exist( err );
           files.exists( dir, name, function( exists ){
@@ -183,7 +183,7 @@ describe('Files', function(){
       it('with local storage', function(done){
         var dir = __dirname + '/output',
           name = 'test2.json';
-        var files = new Files( { data_dir: dir } );
+        var files = new Files( { config: { data_dir: dir } });
         files.write( null, name, JSON.stringify({"say":"yes"}), function( err, success ){
           should.not.exist( err );
           files.remove(null, name, function(err, success){
@@ -200,7 +200,7 @@ describe('Files', function(){
           dir = '/test-rm',
           name = 'test-rm.json';
 
-        var files = new Files( { s3: { bucket: 'chelm-koop-shoot-local'} } );
+        var files = new Files( { config: { s3: { bucket: 'chelm-koop-shoot-local'} } });
         files.write( dir, name, JSON.stringify({"say":"hello goodbye"}), function( err, success ){
           should.not.exist( err );
           files.remove( dir, name, function( err, success ){
@@ -221,7 +221,7 @@ describe('Files', function(){
         var dir = __dirname + '/output',
           subdir = 'subdir',
           name = 'test2.json';
-        var files = new Files( { s3: { bucket: 'chelm-koop-shoot-local'} } );
+        var files = new Files( { config: { s3: { bucket: 'chelm-koop-shoot-local'} } });
         files.write( subdir, name, JSON.stringify({"say":"yes"}), function( err, success ){
           should.not.exist( err );
           files.removeDir(subdir, function(err, success){
