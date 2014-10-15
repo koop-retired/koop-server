@@ -1,6 +1,7 @@
 var express = require("express"),
   bodyParser = require('body-parser'),
   pjson = require('./package.json'),
+  git = require('git-rev-sync'),
   koop = require('./lib');
 
 module.exports = function( config ) {
@@ -18,7 +19,11 @@ module.exports = function( config ) {
   //});
 
   // store the sha so we know what version of koop this is 
-  app.sha = pjson.version;
+  app.status = {
+    version: pjson.version,
+    sha: git.long(),
+    providers: {}
+  };
 
   // handle POST requests 
   app.use(bodyParser());
@@ -41,6 +46,11 @@ module.exports = function( config ) {
 
       // pass the model to the controller
       controller = new provider.controller( model );
+
+      // if a provider has a status object store it
+      if ( provider.status ) {
+        app.status.providers[provider.name] = provider.status;
+      }
 
       // binds a series of standard routes
       if ( provider.name && provider.pattern ) {
