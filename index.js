@@ -39,7 +39,7 @@ module.exports = function( config ) {
   });
 
   // serve the index 
-  app.get("/services", function(req, res, next) {
+  app.get("/providers", function(req, res, next) {
     res.json(app.services);
   });
 
