@@ -7,6 +7,9 @@ var express = require("express"),
 module.exports = function( config ) {
   var app = express(), route, controller, model;
 
+  // keep track of the registered services
+  app.services = [];
+
   koop.config = config;
 
   // init the koop log based on config params 
@@ -35,11 +38,17 @@ module.exports = function( config ) {
     res.render(__dirname + '/views/index');
   });
 
+  // serve the index 
+  app.get("/services", function(req, res, next) {
+    res.json(app.services);
+  });
+
   // register providers into the app
   // sets up models, routes -> controllers/handlers 
   app.register = function(provider){
     // only register if the provider has a name 
     if ( provider.name ) {
+      app.services.push( provider.name );
 
       // save the provider onto the app
       model = new provider.model( koop );
