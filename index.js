@@ -48,7 +48,7 @@ module.exports = function( config ) {
   app.register = function(provider){
     // only register if the provider has a name 
     if ( provider.name ) {
-      app.services.push( provider.name );
+      app.services.push( provider.name.toLowerCase() );
 
       // save the provider onto the app
       model = new provider.model( koop );
