@@ -1,5 +1,6 @@
 var express = require("express"),
   bodyParser = require('body-parser'),
+  fs = require('fs'),
   pjson = require('./package.json'),
   koop = require('./lib');
 
