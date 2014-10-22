@@ -24,7 +24,7 @@ module.exports = function( config ) {
   // store the sha so we know what version of koop this is 
   app.status = {
     version: pjson.version,
-    sha: fs.readFileSync( __dirname + '/.git/refs/heads/master' ).toString(),
+    //sha: fs.readFileSync( __dirname + '/.git/refs/heads/master' ).toString(),
     providers: {}
   };
 
