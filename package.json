@@ -1,6 +1,6 @@
 {
   "name": "koop-server",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "Guts of Koop ",
   "main": "index.js",
   "scripts": {
@@ -31,8 +31,7 @@
     "mapnik-pool": "~0.0.0",
     "winston": "~0.7.3",
     "aws-sdk": "~2.0.0",
-    "mkdirp": "~0.5.0",
-    "git-rev-sync": "~0.1.4"
+    "mkdirp": "~0.5.0"
   },
   "repository": {
     "type": "git",

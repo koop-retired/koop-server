@@ -1,7 +1,6 @@
 var express = require("express"),
   bodyParser = require('body-parser'),
   pjson = require('./package.json'),
-  git = require('git-rev-sync'),
   koop = require('./lib');
 
 module.exports = function( config ) {
@@ -24,7 +23,7 @@ module.exports = function( config ) {
   // store the sha so we know what version of koop this is 
   app.status = {
     version: pjson.version,
-    sha: git.long(),
+    sha: fs.readFileSync( __dirname + '/.git/refs/heads/master' ).toString(),
     providers: {}
   };
 
