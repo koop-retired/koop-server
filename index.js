@@ -43,12 +43,41 @@ module.exports = function( config ) {
     res.json(app.services);
   });
 
+  // a generic rest info response object for geoservice compliance 
+  var restInfo = {
+    currentVersion: 10.21,
+    fullVersion: "10.2.1",
+    soapUrl: "",
+    secureSoapUrl: "",
+    authInfo: {
+      isTokenBasedSecurity: false,
+      tokenServicesUrl: "",
+      shortLivedTokenValidity: 60
+    }
+  };
+ 
+  app.all("/arcgis/rest/info", function(req,res){
+    res.json( restInfo );
+  });
+
+
+  var restServices = {
+    currentVersion: 10.21,
+    folders: [],
+    services: []
+  };
+
+  app.all("/arcgis/rest/services", function(req, res){
+    restServices.services = app.services;  
+    res.json( restServices );
+  });
+
   // register providers into the app
   // sets up models, routes -> controllers/handlers 
   app.register = function(provider){
     // only register if the provider has a name 
     if ( provider.name ) {
-      app.services.push( provider.name.toLowerCase() );
+      app.services.push( { type:'FeatureServer', name: provider.name.toLowerCase() });
 
       // save the provider onto the app
       model = new provider.model( koop );
