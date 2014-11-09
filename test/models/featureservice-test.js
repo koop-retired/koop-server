@@ -10,7 +10,6 @@ before(function (done) {
 });
 
 describe('FeatureServices Model', function(){
-
     describe('when determining esri field types', function() {
       it('should return an esriFieldTypeString for a string', function(done) {
           var type = fs.fieldType('a string');
@@ -59,19 +58,9 @@ describe('FeatureServices Model', function(){
     });
 
     describe('when getting featureserver info from geojson', function(done){
-      /*it('should return a valid feature service object', function(done){
-        fs.info( data, 0, {}, function( service ){
-          service.should.be.an.instanceOf(Object);
-          service.fields.should.be.an.instanceOf(Array);
-          done();
-        });
-      });*/
 
       it('should return a feature service with the proper geom type', function(done){
         //data.features[0].geometry.type = "Polygon";
-        /*var copy = JSON.stringify(data);
-        var polyData = JSON.parse(copy);
-        polyData.features[0].geometry.type = "Polygon";*/
         fs.info( polyData, 0, {}, function( err, service ){
           service.geometryType.should.equal("esriGeometryPolygon");
           done();
@@ -104,7 +93,6 @@ describe('FeatureServices Model', function(){
         });
       });
     });
-
     describe('when getting features with returnCountOnly', function(){
       it('should return only count of features', function(done){
         fs.query( data, { returnCountOnly: true, objectIds: [ 1, 2, 3 ]}, function( err, service ){
@@ -115,7 +103,6 @@ describe('FeatureServices Model', function(){
         });
       });
     });
-
     describe('when getting features with returnIdsOnly', function(){
       it('should return only ids of features', function(done){
         fs.query( data, { returnIdsOnly: true, objectIds: [ 1, 2, 3 ]}, function( err,service ){
@@ -214,7 +201,6 @@ describe('FeatureServices Model', function(){
         });
       });
     });
-
   /*  [
   {
     "statisticType": "<count | sum | min | max | avg | stddev | var>",
@@ -227,7 +213,6 @@ describe('FeatureServices Model', function(){
     "outStatisticFieldName": "Out_Field_Name2"
   }  
 ]*/
-
     describe('when querying features with false outStatistics params', function(){
       it('should return an error when an empty json string is passed', function(done){
         fs.query( data, {
@@ -314,6 +299,5 @@ describe('FeatureServices Model', function(){
       });
 
     });
-
 });
 
