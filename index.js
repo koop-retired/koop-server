@@ -2,6 +2,7 @@ var express = require("express"),
   bodyParser = require('body-parser'),
   fs = require('fs'),
   pjson = require('./package.json'),
+  _ = require("lodash"),
   koop = require('./lib');
 
 module.exports = function( config ) {
@@ -12,8 +13,17 @@ module.exports = function( config ) {
 
   koop.config = config;
 
-  // init the koop log based on config params 
+  // handle POST requests
+  app.use(bodyParser());
+
+  // init the koop log based on config params
   koop.log = new koop.Logger( config );
+
+  //request parameters can come from query url or POST body
+  app.use(function(req, res, next) {
+    req.query=_.extend(req.query || {}, req.body || {});
+    next();
+  });
 
   // log every request
   //app.use(function(req, res, next) {
@@ -21,61 +31,29 @@ module.exports = function( config ) {
     //next();
   //});
 
-  // store the sha so we know what version of koop this is 
+  // store the sha so we know what version of koop this is
   app.status = {
     version: pjson.version,
     //sha: fs.readFileSync( __dirname + '/.git/refs/heads/master' ).toString(),
     providers: {}
   };
 
-  // handle POST requests 
-  app.use(bodyParser());
-
   app.set('view engine', 'ejs');
-  
-  // serve the index 
+
+  // serve the index
   app.get("/", function(req, res, next) {
     res.render(__dirname + '/views/index');
   });
 
-  // serve the index 
+  // serve the index
   app.get("/providers", function(req, res, next) {
     res.json(app.services);
   });
 
-  // a generic rest info response object for geoservice compliance 
-  var restInfo = {
-    currentVersion: 10.21,
-    fullVersion: "10.2.1",
-    soapUrl: "",
-    secureSoapUrl: "",
-    authInfo: {
-      isTokenBasedSecurity: false,
-      tokenServicesUrl: "",
-      shortLivedTokenValidity: 60
-    }
-  };
- 
-  app.all("/arcgis/rest/info", function(req,res){
-    res.json( restInfo );
-  });
-
-
-  var restServices = {
-    currentVersion: 10.21,
-    folders: [],
-    services: []
-  };
-
-  app.all("/arcgis/rest/services", function(req, res){
-    restServices.services = app.services;  
-    res.json( restServices );
-  });
-
   // register providers into the app
-  // sets up models, routes -> controllers/handlers 
+  // sets up models, routes -> controllers/handlers
   app.register = function(provider){
-    // only register if the provider has a name 
+    // only register if the provider has a name
     if ( provider.name ) {
       app.services.push( { type:'FeatureServer', name: provider.name.toLowerCase() });
 
@@ -95,7 +73,7 @@ module.exports = function( config ) {
         app._bindDefaultRoutes(provider.name, provider.pattern, controller );
       }
 
-      // add each route, the routes let us override defaults etc. 
+      // add each route, the routes let us override defaults etc.
       app._bindRoutes( provider.routes, controller );
     }
   };
@@ -104,9 +82,9 @@ module.exports = function( config ) {
     'featureserver': ['/FeatureServer/:layer/:method', '/FeatureServer/:layer', '/FeatureServer'],
     'preview':['/preview'],
     'drop':['/drop']
-  };  
+  };
 
-  // assigns a series of default routes; assumes 
+  // assigns a series of default routes; assumes
   app._bindDefaultRoutes = function( name, pattern, controller ){
     var routes, handler;
     for ( handler in defaultRoutes ){
@@ -126,8 +104,8 @@ module.exports = function( config ) {
       app[ path[0] ]( path[1], controller[ routes[ route ] ]);
     }
   };
-  
-  // init koop centralized file access  
+
+  // init koop centralized file access
   // this allows us to turn the FS access off globally
   koop.files = new koop.Files( koop );
   koop.tiles = new koop.Tiles( koop );
@@ -148,8 +126,8 @@ module.exports = function( config ) {
     console.log('Exiting since no DB configuration found in config');
     process.exit();
   }
- 
+
 
   return app;
-  
+
 };
