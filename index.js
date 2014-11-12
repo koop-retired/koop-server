@@ -3,6 +3,7 @@ var express = require("express"),
   fs = require('fs'),
   pjson = require('./package.json'),
   _ = require("lodash"),
+  child = require('child_process').fork,
   koop = require('./lib');
 
 module.exports = function( config ) {
@@ -125,6 +126,11 @@ module.exports = function( config ) {
   } else if (config && !config.db){
     console.log('Exiting since no DB configuration found in config');
     process.exit();
+  }
+
+  // if export workers are configured then we fork a child
+  if ( config.export_workers ){
+    //child(__dirname+'/lib/ExportWorker.js', [JSON.stringify(config)]);
   }
 
 
