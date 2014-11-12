@@ -130,7 +130,7 @@ module.exports = function( config ) {
 
   // if export workers are configured then we fork a child
   if ( config.export_workers ){
-    //child(__dirname+'/lib/ExportWorker.js', [JSON.stringify(config)]);
+    child(__dirname+'/lib/ExportWorker.js', [JSON.stringify(config)]);
   }
 
 
