@@ -1,306 +1,159 @@
-## Change Log
+2014-11-12
+==========
 
-### upcoming (2014/11/07 02:52 +00:00)
-- [a2f0766](https://github.com/Esri/koop-server/commit/a2f076630307ccf8bcae4f78ec57e1d0f42c1133) upped version (@chelm)
-- [163fd37](https://github.com/Esri/koop-server/commit/163fd3725bd786b73af9f2d2c8bdbad93239cbcc) forcing options.name to be used over the hash key for saved export file names (@chelm)
-- [558cd72](https://github.com/Esri/koop-server/commit/558cd7224e2273e41e53fb4cddc63a27ba7abfa7) new version 0.1.22 (@chelm)
-- [a878de0](https://github.com/Esri/koop-server/commit/a878de0afac9d1fe7acebe6fc6b4872c52b5e8cf) adding support rest info and services (@chelm)
-- [#33](https://github.com/Esri/koop-server/pull/33) fix for 'returnCountOnly' (@jgravois)
-- [16cbac0](https://github.com/Esri/koop-server/commit/16cbac0c07bac185f62f12ffe1f366607bf39528) check for true as string (@jgravois)
-- [946016b](https://github.com/Esri/koop-server/commit/946016b8da061955977930c8ebd7d71be3705468) version 0.1.21 (@chelm)
-- [7af44c5](https://github.com/Esri/koop-server/commit/7af44c569be668d1a1f0e346b583844105ce9b78) null values cast as strings in featureservice fields (@chelm)
-- [b38a6cd](https://github.com/Esri/koop-server/commit/b38a6cd3b898e34365ddab5b544291e31b253aea) making csv geojson replace commas from big numbers (@chelm)
-- [4328bcf](https://github.com/Esri/koop-server/commit/4328bcff336925015f5bdb8418837e9056112e9d) new version (@chelm)
-- [905f8f3](https://github.com/Esri/koop-server/commit/905f8f3c9d89d2010084b11451cadb10ef1eff23) making the sql lite lib actually work (@chelm)
-- [6962e43](https://github.com/Esri/koop-server/commit/6962e431d86091ca86d4a190ce9644a227fe2a97) up version (@chelm)
-- [a723f11](https://github.com/Esri/koop-server/commit/a723f11763ad3248735c08e1234975669d6546fd) skipfailures in ogr2ogr (@chelm)
-- [1bec7ab](https://github.com/Esri/koop-server/commit/1bec7ab1cd0563263a4ad0d0601dd630d3a2792f) reverting use of multigeoms (@chelm)
-- [3e41d03](https://github.com/Esri/koop-server/commit/3e41d0372f42b833ee9f52245583cc34040b5a67) upping version (@chelm)
-- [8953af3](https://github.com/Esri/koop-server/commit/8953af3432950833ae0a1c8dcdc4538a09f38e7c) fixing csv geoms as points (@chelm)
-- [8f8a9ff](https://github.com/Esri/koop-server/commit/8f8a9ff8bd418bdece09947d6d15e26b30d6fb39) new version fixing point shapefiles (@chelm)
-- [b951e62](https://github.com/Esri/koop-server/commit/b951e628302d772adff9aa351ecf7264bab880ab) status output fix (@chelm)
-- [1215576](https://github.com/Esri/koop-server/commit/1215576aaa6adbe35bcb2f9287be8634ccfcdbf4) status output fix (@chelm)
-- [d1a7aaf](https://github.com/Esri/koop-server/commit/d1a7aaf7541447641435532a8dfee54a2ed8937a) better status sha (@chelm)
-- [2768df1](https://github.com/Esri/koop-server/commit/2768df178f677cffc86053ab9da840e1ae56fc4e) version upgrade (@chelm)
-- [f075ad4](https://github.com/Esri/koop-server/commit/f075ad44b3b0d3fc8b269f7d8f0f83e88a8570a1) fixing geometry check with no data (@chelm)
-- [28436a1](https://github.com/Esri/koop-server/commit/28436a191a1a3a3991c3ede2d93f6a832c0533f5) version 0.1.11 (@chelm)
-- [6988209](https://github.com/Esri/koop-server/commit/69882090da1890471c6da0d2ce438077cb46f0b4) fix multi point partial inserts (@chelm)
-- [5d0dc70](https://github.com/Esri/koop-server/commit/5d0dc700411a7d5beff59c440cccd246aa769c14) better pg errors (@chelm)
-- [dd53373](https://github.com/Esri/koop-server/commit/dd533737fd6c757ee639b7eebb0c4f02683dc06c) change /services to /providers (@chelm)
-- [9e4a28f](https://github.com/Esri/koop-server/commit/9e4a28f1aba6aa19d5d963eceaa98691b2cd4084) change /services to /providers (@chelm)
-- [a57940d](https://github.com/Esri/koop-server/commit/a57940d1ed56d4c09c869086340ed24d35a1a335) adding a services endpoint to list registered services (@chelm)
-- [0936fa3](https://github.com/Esri/koop-server/commit/0936fa3008603fe21567ad1f80b1b402a0bfc9ea) check for json before deleting info object (@chelm)
-- [103bb6c](https://github.com/Esri/koop-server/commit/103bb6ceb65108b157451c5e7190bbe19e0e5004) up version (@chelm)
-- [06412be](https://github.com/Esri/koop-server/commit/06412be800ee1830c47be8ed380f985c2ee63fa9) adding lat long _deg to csv whitelist (@chelm)
-- [86fdc53](https://github.com/Esri/koop-server/commit/86fdc53a846e44a661c7764548dc6922420af934) up version (@chelm)
-- [05e9017](https://github.com/Esri/koop-server/commit/05e9017c1ff621ad1bc659d67923249ec7e4b985) adding point geom check in for zip (@chelm)
-- [d2056a4](https://github.com/Esri/koop-server/commit/d2056a4fecd044821c5810235cf789f3d8c97487) new version (@chelm)
-- [c4e46aa](https://github.com/Esri/koop-server/commit/c4e46aadcaa09ae94af160909aeed2a98e480908) cleaning up the paths for s3 files (@chelm)
-- [2572e77](https://github.com/Esri/koop-server/commit/2572e77cf1cbd241d42e855e5d33f4d821b07199) new v (@chelm)
-- [c7cccb2](https://github.com/Esri/koop-server/commit/c7cccb23ade8f3daa5bf311863bc652c1512aa16) making zip files with spaces in the name work (@chelm)
-- [da5f763](https://github.com/Esri/koop-server/commit/da5f76336331143c3fd94b5adbeff2ff6bc9c45b) version 0.1.5 (@chelm)
-- [a07155a](https://github.com/Esri/koop-server/commit/a07155af36b66a6248f7e62847538093d968c87c) adding better s3 removal (@chelm)
-- [647f8da](https://github.com/Esri/koop-server/commit/647f8dad3ff003b911fcd3cec178858af6a86718) up version for lower mapnik support (@chelm)
-- [ab19e1c](https://github.com/Esri/koop-server/commit/ab19e1ccb0a1ef670a8ff038f4bbbdc44bd33207) rolling back mapnik version (@chelm)
-- [43002d1](https://github.com/Esri/koop-server/commit/43002d16f8a37bd87760794ed5d3ecaffeb097dd) rolling back mapnik version (@chelm)
-- [08f61f9](https://github.com/Esri/koop-server/commit/08f61f90852ea8b9e3023cc2e3a81d0f5d6a4fef) up the version for error response on service get (@chelm)
-- [e88d503](https://github.com/Esri/koop-server/commit/e88d503006e5b1e0e3372b72ade637e7251d9317) return an error on new db with no server type tables (@chelm)
-- [62e28d6](https://github.com/Esri/koop-server/commit/62e28d6da4e2936f7477eb9a7270d0ef29757d03) fixes tests (@chelm)
-- [92d95f3](https://github.com/Esri/koop-server/commit/92d95f319d9f74ee387afaf5efcc76ff728867f3) logging for removes from s3 (@chelm)
-- [18ad045](https://github.com/Esri/koop-server/commit/18ad045a9a9f6765f741d2852f9bcfef6a415681) tiles work (@chelm)
-- [2df137f](https://github.com/Esri/koop-server/commit/2df137fe82370138c452853ff12e21f3f928dec5) adding status output to server (@chelm)
-- [d1f26e7](https://github.com/Esri/koop-server/commit/d1f26e7843c84b425d1f1464ba8fb6df83b040e0) fixing file tests and logs (@chelm)
-- [1558e1f](https://github.com/Esri/koop-server/commit/1558e1fbcf3b6d4dc48f2f33a43cdc28c3e371a2) logging for exists on s3 (@chelm)
-- [6881eee](https://github.com/Esri/koop-server/commit/6881eee2b694c81144f763ed26860dcc1202aa42) logging for exists on s3 (@chelm)
-- [9bf22b7](https://github.com/Esri/koop-server/commit/9bf22b789c95fdeb8d29f238a961024757772503) removeDir now drops s3 data and subdirs (@chelm)
-- [69a8435](https://github.com/Esri/koop-server/commit/69a84354ec27d8e394afafb6ef1fc74d3e2d497f) pass koop to files for logging (@chelm)
-- [55e7eb3](https://github.com/Esri/koop-server/commit/55e7eb3c1d9414d925fb5fa91a0a0c856a16bc52) tests passing, version 0.1.1 (@chelm)
-- [fd0477a](https://github.com/Esri/koop-server/commit/fd0477ab60c4bf3a39eaea56d02f245a23d5b7ae) new version (@chelm)
-- [ed0fe48](https://github.com/Esri/koop-server/commit/ed0fe48fc67d9b029c644e9de259cc789260afea) remove console (@chelm)
-- [c78ba17](https://github.com/Esri/koop-server/commit/c78ba176370d081275fbe4be40134386ba7d5fd6) remove git-rev (@chelm)
-- [7d32ccf](https://github.com/Esri/koop-server/commit/7d32ccf37bccff8df50893e9ae76d2e9077200dd) big rebase all fixed and good (@chelm)
-- [a520581](https://github.com/Esri/koop-server/commit/a520581eab421030b287d73a89f44522559cd5a3) thumbs, tiles, and small exports working (@chelm)
-- [e3da348](https://github.com/Esri/koop-server/commit/e3da3482451c534b0be6fdf80c51c2eaf9913a2c) full test coverage on files (@chelm)
-- [8a9f9c0](https://github.com/Esri/koop-server/commit/8a9f9c05cf90da23c8dc603965ee96c9bc5eade4) adding fs wrapper test (@chelm)
-- [921158c](https://github.com/Esri/koop-server/commit/921158c37d07d83757133ad2c7e7a707ee683c4a) adding a central file system wrapper (@chelm)
-- [5c0d14a](https://github.com/Esri/koop-server/commit/5c0d14ac6f953b811d8dbc649f58df978851ef7b) test passing (@chelm)
-- [1f8e55a](https://github.com/Esri/koop-server/commit/1f8e55ad18f743493f45cd746febe521c23d3394) adding verion output (@chelm)
-- [1798241](https://github.com/Esri/koop-server/commit/1798241036d334ae03f2bdb6992e930eeb82c9b9) version 0.1.0 (@chelm)
-- [e760113](https://github.com/Esri/koop-server/commit/e76011330575970d0606b98d1927d5d30aa8a469) deglobal is essentially ready (@chelm)
-- [043efb4](https://github.com/Esri/koop-server/commit/043efb4cfb32c78a213632ab7169c2e05471f55f) fixing base controller pattern (@chelm)
-- [316e6d3](https://github.com/Esri/koop-server/commit/316e6d33cc1295653814c428dc75bc9379e2130b) tests passing with latest master merge (@chelm)
-- [b74cfa8](https://github.com/Esri/koop-server/commit/b74cfa8c77fc1f9ba574d113f9c2469379ee0118) adding debug to all routes (@chelm)
-- [d3c9a18](https://github.com/Esri/koop-server/commit/d3c9a18954477862d0176c1e5be911b1eeb78d90) adding basemodel (@chelm)
-- [00e0323](https://github.com/Esri/koop-server/commit/00e03234a902c27f9a4be633d77f02740b48899a) adding log to the base model (@chelm)
-- [7e972dd](https://github.com/Esri/koop-server/commit/7e972dd392fd385980032c73d607c6b0c617a97a) setting logging levels (@chelm)
-- [201b184](https://github.com/Esri/koop-server/commit/201b184dfd6ac94430a6c689e64c9d5b3cc308a4) exporter logging to koop logger (@chelm)
-- [9f5ea9e](https://github.com/Esri/koop-server/commit/9f5ea9e4f7ee71298dfd7db443a4c1560ac551bf) adding logger (@chelm)
-- [6c3993a](https://github.com/Esri/koop-server/commit/6c3993adf5f39d0a958efe8c02ff9835d61b6b82) new loading pattern, cleaner (@chelm)
-- [fe07541](https://github.com/Esri/koop-server/commit/fe0754111d0d6023caf1ec772b3b18b4741fd071) tests passing (@chelm)
-- [a47263d](https://github.com/Esri/koop-server/commit/a47263dfea25a84a63050575ff51a7f65d81519d) using exec instead of spawn async (@chelm)
-- [aeb6a03](https://github.com/Esri/koop-server/commit/aeb6a03c89904adc10cb1c580f9ac67e4dced853) fixing featureservice queries (@chelm)
-- [d933a9c](https://github.com/Esri/koop-server/commit/d933a9c3707d8ef1a73d79b4de08f4f58b617b9a) rm global config (@chelm)
-- [132c775](https://github.com/Esri/koop-server/commit/132c775adc64296e8720b696fa334858e82f33df) remove log (@chelm)
-- [5ee0d52](https://github.com/Esri/koop-server/commit/5ee0d522a73c863a6228abb93468c8684a33432e) tests all passing (@chelm)
-- [2362831](https://github.com/Esri/koop-server/commit/2362831e3b30f7055b39a90f04882e3b440fb644) removing config (@chelm)
-- [d39262d](https://github.com/Esri/koop-server/commit/d39262d304d55cd73d8eddc186c67b9e214fa73a) working on the right inherit pattern (@chelm)
-- [34d26e6](https://github.com/Esri/koop-server/commit/34d26e6392e0c98a22645b4c92b7d6d2f452ea0c) no more global scope (@chelm)
-- [0c099c5](https://github.com/Esri/koop-server/commit/0c099c56e20bea7b81eda816071bffff4279324b) no more global scope (@chelm)
-- [512464b](https://github.com/Esri/koop-server/commit/512464b5b99ad6e3f68f367e4f503c301099ea3a) working on non-global pattern (@chelm)
-- [#29](https://github.com/Esri/koop-server/pull/29) Geom checks (@Esri)
-- [9e47d45](https://github.com/Esri/koop-server/commit/9e47d453394b0b99796eed48aab68ceee8fad32e) more robust geometry check for DB inserts (@chelm)
-- [a78358f](https://github.com/Esri/koop-server/commit/a78358f069ba046311cdadf504ecdc2fc8bfed65) removing geom insert (@chelm)
-- [ab00ef0](https://github.com/Esri/koop-server/commit/ab00ef0cd9c9202fe28d73b8a8a1831ce91a53ad) image service tiles (@chelm)
-- [fecf3d7](https://github.com/Esri/koop-server/commit/fecf3d767057372600fdb7e37c34a03f8a1afe44) beeter error check on service types (@chelm)
-- [ea36ba4](https://github.com/Esri/koop-server/commit/ea36ba4c5441a2d5f3fd8cd15e776ec609d91f60) fixed tile edges (@chelm)
-- [d59b330](https://github.com/Esri/koop-server/commit/d59b330faa6f4611ca6cb422f9630cfd24758718) better parsing for x/y fields in the first column (@chelm)
-- [6ec9168](https://github.com/Esri/koop-server/commit/6ec9168dd1088ef16b78a2a14a06b268cd4b2050) added check for 0 value in filters (@chelm)
-- [6597c3d](https://github.com/Esri/koop-server/commit/6597c3dd32452662206796a147363822bb239662) rolling back skipLimit for downloads (@chelm)
-- [339f660](https://github.com/Esri/koop-server/commit/339f6604fe96b74eb317969474b3ebd1e691df32) use the id instead of name for displayfield (@chelm)
-- [d1371f3](https://github.com/Esri/koop-server/commit/d1371f31dd193c99ebd3617da3ce1d33fc329c6e) fixing lint (@chelm)
-- [c1bed0e](https://github.com/Esri/koop-server/commit/c1bed0ecc3692fb429ff898db35fda2ccb395f97) postgis remove fix (@chelm)
-- [0e6fb7b](https://github.com/Esri/koop-server/commit/0e6fb7b5da62d5bace9a3f7938159a93847691df) support for bypassing large cvs (@chelm)
-- [0fe294f](https://github.com/Esri/koop-server/commit/0fe294fb2e599e221a0af8eb562b0e1758795abb) fixing where filters in feature service requests (@chelm)
-- [fbfb18b](https://github.com/Esri/koop-server/commit/fbfb18b8e9b9b4296a792059cbc1f497494e356d) delinting (@chelm)
-- [6e6aa16](https://github.com/Esri/koop-server/commit/6e6aa1699bba4156a3a165df7338a1ce50f7ca85) remove log (@chelm)
-- [a8dffc3](https://github.com/Esri/koop-server/commit/a8dffc36b813a7c5e1c4b1fb1613e7c62d94d8f1) adding support for orderByFields (@chelm)
-- [950f226](https://github.com/Esri/koop-server/commit/950f226ba1f80b49a22b47948bf928cc0e761a7b) adding a file generating flag to 202 response for large downloads (@chelm)
-- [1d1e871](https://github.com/Esri/koop-server/commit/1d1e8712530db3363954c9fad711da4b11d23511) removes esriGeomPolygon that crashes ogr2ogr (@chelm)
-- [eb7630b](https://github.com/Esri/koop-server/commit/eb7630bbffbe51e15ef9f56736316ac0891c6ba9) adding checks for bogus feature server urls (@chelm)
-- [9cfc020](https://github.com/Esri/koop-server/commit/9cfc0202064dd31d45df38fd2e9920f40dbb5052) remove debug tiles (@chelm)
-- [db0b42b](https://github.com/Esri/koop-server/commit/db0b42bcebda519dfd3e059abe00a2ef1412b822) fix for type on geom less tables (@chelm)
-- [2f8f210](https://github.com/Esri/koop-server/commit/2f8f2100ae2b2a8e99e3c48bcc73aba23a500c40) using lower case on white list for csv (@chelm)
-- [8929359](https://github.com/Esri/koop-server/commit/89293599542462964a6a8557d111c82e95149404) adding more fields to the csv lat lon whitelist (@chelm)
-- [70ac196](https://github.com/Esri/koop-server/commit/70ac1966579ad0671f2681093b32ae74798ac90d) mapnik-pool makes it faster (@chelm)
-- [6dfc6ec](https://github.com/Esri/koop-server/commit/6dfc6ec77a98773f5b5126a2f6ffa39127128d21) setting transparent bg (@chelm)
-- [#27](https://github.com/Esri/koop-server/pull/27) Multi layer tiles (@Esri)
-- [b7df89e](https://github.com/Esri/koop-server/commit/b7df89ec1769021564754b239383b54a8374801e) db connection is now real (@chelm)
-- [f933896](https://github.com/Esri/koop-server/commit/f93389642e57941bab28b93788ec55c138f4205a) sending geom filter to count function to speed up filters (@chelm)
-- [68d950d](https://github.com/Esri/koop-server/commit/68d950da6f017268077807809a37eac7d3d36fd7) enforcing multigeoms (@chelm)
-- [930a9bd](https://github.com/Esri/koop-server/commit/930a9bdb0c3a25f426bc0e1f49ce8bc320a8a91d) multi layer tile config is working (@chelm)
-- [#25](https://github.com/Esri/koop-server/pull/25) large data downloads wont page over all the data for a filtered export (@Esri)
-- [#26](https://github.com/Esri/koop-server/pull/26) complexity analysis (@JerrySievert)
-- [8a53c1c](https://github.com/Esri/koop-server/commit/8a53c1c900d03c1d68f981b9ef1c29d58d651b95) add semicolon so that analysis finishes (@JerrySievert)
-- [5072a66](https://github.com/Esri/koop-server/commit/5072a66538879285971b4f8d248b99ac32639be7) add gulpfile for complexity and code analysis (@JerrySievert)
-- [52bd274](https://github.com/Esri/koop-server/commit/52bd274c592405619f27d87b2e86baeecc215d95) large data downloads wont page over all the data for a filtered export (@chelm)
-- [819a6d7](https://github.com/Esri/koop-server/commit/819a6d753f4ec3766e3ca411f7e496cfdb6787df) adding back the fieldmap (@chelm)
-- [883b316](https://github.com/Esri/koop-server/commit/883b316853f3cfa64bd92e53f6609a22cda73fe7) making sure that zip files are written to the tmp file (@chelm)
-- [e6b9842](https://github.com/Esri/koop-server/commit/e6b9842788888999ac88988602e966ddad28f945) reverting identity until the gdal version gets updated (@chelm)
-- [5e39d39](https://github.com/Esri/koop-server/commit/5e39d395edd59382bc3b642c77c0f22bf75e8681) using readfile instead of require (@chelm)
-- [#24](https://github.com/Esri/koop-server/pull/24) adding -fieldmap identity to the ogr calls (@Esri)
-- [d65cb13](https://github.com/Esri/koop-server/commit/d65cb13badf14e18b9f19d7c72a811d5fb29e445) adding -fieldmap identity to the ogr calls for large data fixing missing dat ing data bug (@chelm)
-- [dbe4cae](https://github.com/Esri/koop-server/commit/dbe4cae0015c2a35cef9d9a69bde2db8ded6ce0a) fixing the simplification in queries (@chelm)
-- [22aac6e](https://github.com/Esri/koop-server/commit/22aac6e892770f7693270441f491b2ee14dbd9f7) delinting (@chelm)
-- [a79bb3f](https://github.com/Esri/koop-server/commit/a79bb3f131619f53bad848d0396323968e78e890) updating featureservice support for tables array (@chelm)
-- [#21](https://github.com/Esri/koop-server/pull/21) Export tmp (@Esri)
-- [f4dc252](https://github.com/Esri/koop-server/commit/f4dc25200c7c8fc347b712ed58b4f98638904a7a) delint (@chelm)
-- [60d734f](https://github.com/Esri/koop-server/commit/60d734f4ce3d163576b30c4feb14e11f0076ad2e) export file to tmp files then move (@chelm)
-- [f3a41be](https://github.com/Esri/koop-server/commit/f3a41be4e946e2ee1228538f7f50fddc368eb853) check for xmin (@chelm)
-- [552c048](https://github.com/Esri/koop-server/commit/552c04819042d2906c08627886487639cef4dbcb) adding a fix for int values of 0 not getting casted correctly (@chelm)
-- [610787e](https://github.com/Esri/koop-server/commit/610787e725e0b538f1a9941078cffb91f07e4b3f) remove dup call to create table in sqllite (@chelm)
-- [da2782d](https://github.com/Esri/koop-server/commit/da2782dbaa9b5a24394def45e80a4df08a2109b9) rm log (@chelm)
-- [b91eba8](https://github.com/Esri/koop-server/commit/b91eba84d8ff945eb8524c01924cf0a6023e7337) adding better log for create tables (@chelm)
-- [fd93747](https://github.com/Esri/koop-server/commit/fd937478e777476da6d1f64adc44df3686bbb46a) minx doesnot equal xmin danm it (@chelm)
-- [0d3a2c0](https://github.com/Esri/koop-server/commit/0d3a2c0cd37742fd08e4013acf80ca5436e33834) ditching out of tables for now (@chelm)
-- [#20](https://github.com/Esri/koop-server/pull/20) using ilike for better support for string cases (@Esri)
-- [3b934ee](https://github.com/Esri/koop-server/commit/3b934eef51d7b396dd0656a4eb8eb42f1c288e35) using ilike for better support for string cases (@chelm)
-- [8533ca8](https://github.com/Esri/koop-server/commit/8533ca852e4eebe99b3dd34509d04912220196c3) fixing order by for large data that is prod now (@chelm)
-- [8c9c1d5](https://github.com/Esri/koop-server/commit/8c9c1d5caa8425bfee4d1ac4aed726608c9e8a98) change the spot of ORDER BY in SQL select for queries with limits (@chelm)
-- [b9ac7df](https://github.com/Esri/koop-server/commit/b9ac7dfc6d345788d44ee3cb06da93da8a5ccce0) remove console (@chelm)
-- [b825757](https://github.com/Esri/koop-server/commit/b8257571e095b0c8adaa24d0d1e18039e4c08163) enforcing order (@chelm)
-- [9b5ca56](https://github.com/Esri/koop-server/commit/9b5ca56ccbb4e8dc434cb5651a4c77fec535b067) sets type to table for services with no geoms (@chelm)
-- [#13](https://github.com/Esri/koop-server/pull/13) Sql parsing (@Esri)
-- [acc6a57](https://github.com/Esri/koop-server/commit/acc6a57914a5b52c005e65661bde077bc6b263c8) remove dep for simple-sql-parser (@chelm)
-- [d651f86](https://github.com/Esri/koop-server/commit/d651f86b4493644384d15d4af743d4a39f82561b) remove unneeded quotes on fieldnames if present (@chelm)
-- [e03a6bf](https://github.com/Esri/koop-server/commit/e03a6bfabd51542a6b101388ba51bb4fe4c186f0) refactored sql logic with jupes awesome composer code (@chelm)
-- [43bb71b](https://github.com/Esri/koop-server/commit/43bb71b8d4b0babf0d2292aad64349a398ad35e3) Merge branch 'csv-support' (@mjuniper)
-- [b6e7496](https://github.com/Esri/koop-server/commit/b6e74962f48b6e529de79c659835bd2747603595) Numeric data value for CSV (@chelm)
-- [7ef977f](https://github.com/Esri/koop-server/commit/7ef977f375a2a3a9b03a7cf674906b63003e7365) Merge branch 'csv-support' (@mjuniper)
-- [5b23d50](https://github.com/Esri/koop-server/commit/5b23d507dc10078feebd3633823b392d9319f4ad) delint (@chelm)
-- [97dbbd5](https://github.com/Esri/koop-server/commit/97dbbd528e191c33ebc0c613a61578654a268059) if a csv has a lat and long use it for geom (@chelm)
-- [5df787c](https://github.com/Esri/koop-server/commit/5df787cef457c4d3319dc91f49560d65998d67df) adding checks for geometry in feature service processing (@chelm)
-- [5d99e0a](https://github.com/Esri/koop-server/commit/5d99e0aefef162b8c2524720b096db76ab3a4886) packaging the cpg file with shp file downloads (@chelm)
-- [bbc52e6](https://github.com/Esri/koop-server/commit/bbc52e60be2492bd8c6a1dfdb6f7e2205595d7c0) fixes a where clause issue coming from the previews demos (@chelm)
-- [#9](https://github.com/Esri/koop-server/pull/9) Return actual JSON from a SQLite database rather than a string. (@nixta)
-- [90956a7](https://github.com/Esri/koop-server/commit/90956a7b1eb4d4029013772b356aa25b4a631a23) Return actual JSON from a SQLite database rather than a string. (@nixta)
-- [7efdd8b](https://github.com/Esri/koop-server/commit/7efdd8b67e8158c7969f01b6f7572875db41b6ac) README updates (@chelm)
-- [30d25c0](https://github.com/Esri/koop-server/commit/30d25c08816d4b6cbb1449ff15ffec978a1c9aaa) Merge branch 'cloudant-spatialite' (@chelm)
-- [2b51ba8](https://github.com/Esri/koop-server/commit/2b51ba8e79066910815a84f65cf9f59a0dde8b59) adding spatialite to package and updating example config (@chelm)
-- [fc34e4b](https://github.com/Esri/koop-server/commit/fc34e4b92d0fd64697c320eb0aa4844955089379) removed config/runtime (@chelm)
-- [34b81e4](https://github.com/Esri/koop-server/commit/34b81e419ddd029827c24778863920feaa138519) Merge branch 'spatialite' of github.com:cloudant/koop-server into cloudant-spatialite (@chelm)
-- [3c0c213](https://github.com/Esri/koop-server/commit/3c0c2132f75315d9ef7d9b2b3fc1c0cb1471949f) Merge branch 'cloudant-tests' (@chelm)
-- [11d143d](https://github.com/Esri/koop-server/commit/11d143d2fef8111d3d310d9e2e4895296fc8d270) Merge branch 'tests' of github.com:cloudant/koop-server into cloudant-tests (@chelm)
-- [9de94ca](https://github.com/Esri/koop-server/commit/9de94ca739401bd085f7219ed1ed410eaf0c3904) better tile point styles (@chelm)
-- [6e6cef6](https://github.com/Esri/koop-server/commit/6e6cef604c573696b1727957a3f1a9b063566935) better tile point styles (@chelm)
-- [ce7cee9](https://github.com/Esri/koop-server/commit/ce7cee9ede0d3a92aa950724ec23897e5681cbb2) fixing point styles (@chelm)
-- [8d7dac6](https://github.com/Esri/koop-server/commit/8d7dac61f9355b09a4b4c4b1d4e793c7d86e8ce3) fix export selection counts (@chelm)
-- [b1d002e](https://github.com/Esri/koop-server/commit/b1d002e34c0f37108d3df7fbf650850d01f19305) fix for timestamp conversion on missing attr (@chelm)
-- [d46edc1](https://github.com/Esri/koop-server/commit/d46edc1284dd84a70786b163218f24dda455aba6) working on thumbnail dir (@chelm)
-- [da76842](https://github.com/Esri/koop-server/commit/da7684271113f8e4fab1b42fdc4577db2d4e878d) spatialite integration with koop (@normanb)
-- [6104146](https://github.com/Esri/koop-server/commit/6104146829b5392b14254a0912ee8acc83b5a548) adding multilinestring to mapnik styler (@chelm)
-- [434e5f9](https://github.com/Esri/koop-server/commit/434e5f987a4db7503e3af0227a8d0d71403e23a2) updating terraformer version (@chelm)
-- [#6](https://github.com/Esri/koop-server/pull/6) better support for geo queries (@Esri)
-- [cf95825](https://github.com/Esri/koop-server/commit/cf9582580e2830655ed57e84e83154d4720ee58c) use external config for postgis connection (@normanb)
-- [e09b524](https://github.com/Esri/koop-server/commit/e09b5246dccc11d4c0cab7c8b7108f2f2823214a) support for geoqueries (@chelm)
-- [227e4b8](https://github.com/Esri/koop-server/commit/227e4b84c3816470d3c0d2a301b04e03c7247384) fixing thumbnail and geojson from esri services (@chelm)
-- [ed8edee](https://github.com/Esri/koop-server/commit/ed8edee6050d9f9572c53ad17a1206a3f5f8bd3b) tile tests (@chelm)
-- [9f2b789](https://github.com/Esri/koop-server/commit/9f2b78924f9c190e9a538e6fed950cdcf13d1fac) tiles use file names (@chelm)
-- [f40ba3e](https://github.com/Esri/koop-server/commit/f40ba3ec2c87c8d25e6575951559c20299000b62) adding bunyan to package (@chelm)
-- [3f46563](https://github.com/Esri/koop-server/commit/3f4656382f40f4111ddd28eddab5e0d9c21de354) fixing large shp download names (@chelm)
-- [598b95e](https://github.com/Esri/koop-server/commit/598b95ea1a72bb24011fc64f4157126a223e8e47) adding test fixture (@chelm)
-- [d1c66c5](https://github.com/Esri/koop-server/commit/d1c66c591f269ecb37fa186047db8293320cf3ae) adding sql-parser here (@chelm)
-- [e4eee17](https://github.com/Esri/koop-server/commit/e4eee17e99b13d200cf812cb01c47c9dfd4c4849) big data downloads properly set status now (@chelm)
-- [883330a](https://github.com/Esri/koop-server/commit/883330aea553015429cccd813ded1cb126180e28) linting (@chelm)
-- [1ca1a86](https://github.com/Esri/koop-server/commit/1ca1a861d40a12cd235127008ab1e1957b00890e) adding special char removal to geojson from esri (@chelm)
-- [69a38bc](https://github.com/Esri/koop-server/commit/69a38bc80b8ebdd8c80b153fa0294119e5b27521) adding id attribute (@chelm)
-- [fce8930](https://github.com/Esri/koop-server/commit/fce89305c90784306d6e2f40b6146aeddaa25a38) removing empty parens (@chelm)
-- [e053c8f](https://github.com/Esri/koop-server/commit/e053c8f3e6c9c017ffd3d735ce2749e1f52a44a2) many datefields (@chelm)
-- [4e0fdd3](https://github.com/Esri/koop-server/commit/4e0fdd3a36f386a8a46e1c2ff3c06cdddb6eee10) added support for filters with mixed int and float in the json (@chelm)
-- [e3ea190](https://github.com/Esri/koop-server/commit/e3ea190dd198e58d8316acd2aa621956975435d5) fixed exporting to shp bug with geom type (@chelm)
-- [26054a2](https://github.com/Esri/koop-server/commit/26054a2f7ab2b943eaa1a62855c294813597e4f4) adding timestamp field support (@chelm)
-- [b1eec49](https://github.com/Esri/koop-server/commit/b1eec49ea5c87c0cd3a6c14ce61ca467e38ddec1) exporter ready (@chelm)
-- [6f7d869](https://github.com/Esri/koop-server/commit/6f7d8699d7334d55825f97e08469e9d7a6690f08) pushed a log; my bad (@chelm)
-- [6902683](https://github.com/Esri/koop-server/commit/69026837720f70583f9ccf41abf3a3afcb1b6404) batch inserts (@chelm)
-- [a3c7d6b](https://github.com/Esri/koop-server/commit/a3c7d6b59c56466b37371df75acefbd8f7da324e) up the package (@chelm)
-- [a856198](https://github.com/Esri/koop-server/commit/a856198517c0ff49ca6ff7573febd18a428f55d1) test pass (@chelm)
-- [cddfdf7](https://github.com/Esri/koop-server/commit/cddfdf7d41ff2e8a8b6c7b2f976a3a8a6f7f1330) big data csv exports x/y (@chelm)
-- [2d26f18](https://github.com/Esri/koop-server/commit/2d26f18663806fdc21a9178de0a711483b1af1c4) better sql parsing logic and tests (@chelm)
-- [f479f2d](https://github.com/Esri/koop-server/commit/f479f2da4d7502f4202d13f8ef66467d71414afd) wow big datasets are downloading (@chelm)
-- [91bbd98](https://github.com/Esri/koop-server/commit/91bbd987253d8c2676d81ebefff0c3ab8146c9e8) big download zip support (@chelm)
-- [72dee13](https://github.com/Esri/koop-server/commit/72dee136b0b424fbdf4f7665afe2a0885a7efd39) status processing while files convert (@chelm)
-- [92f1741](https://github.com/Esri/koop-server/commit/92f17410adbbf1986c677feb167715144f31b479) paging through the db in exporter (@chelm)
-- [26b1df8](https://github.com/Esri/koop-server/commit/26b1df8914168bac47b47b8eac1560f92a27ae07) big data downloads work (@chelm)
-- [1c5fd75](https://github.com/Esri/koop-server/commit/1c5fd75b667d2e47ace806d8817decddf73d095f) testing the tasker (@chelm)
-- [1fc161c](https://github.com/Esri/koop-server/commit/1fc161c878e94ba3a5ba4c6f215f45d0f5756767) support for actual OR (@chelm)
-- [f55d33c](https://github.com/Esri/koop-server/commit/f55d33c7354f51f1556ee0047adb6e5a03417295) add test for simple OR filter (@chelm)
-- [24275bd](https://github.com/Esri/koop-server/commit/24275bd13ff01ff65bf5ff01aa4ad248e8676c38) adding test file (@chelm)
-- [e4b129b](https://github.com/Esri/koop-server/commit/e4b129ba689a3abed184160a22441f3d23c77b92) better sql parsing logic and tests (@chelm)
-- [ae409fc](https://github.com/Esri/koop-server/commit/ae409fc66ab200ae9abd0ac27dcb5db62bcab762) fix typo in renderer (@chelm)
-- [e902b1a](https://github.com/Esri/koop-server/commit/e902b1acac83de782b3589e4e3b5ebaf0aef6188) mixed geom support tables (@chelm)
-- [6796b1f](https://github.com/Esri/koop-server/commit/6796b1fe4ce9c84de5a8eb81bf174961093a7e9b) fix no-data insert geoms (@chelm)
-- [e6b66c4](https://github.com/Esri/koop-server/commit/e6b66c4f551d5940a34fdc3f1dd6b21c9c3d2bc1) version up (@chelm)
-- [b5176f4](https://github.com/Esri/koop-server/commit/b5176f4a2482be7f089a0c191da3955f6328aee0) fixing cache tests (@chelm)
-- [6cd8133](https://github.com/Esri/koop-server/commit/6cd813357cb879d4497a1b2f76eec830c62bcde4) adding geom column and index to tables (@chelm)
-- [851600c](https://github.com/Esri/koop-server/commit/851600c1d395f72a362bc72c8190e162a529970a) version up (@chelm)
-- [9ef1ac2](https://github.com/Esri/koop-server/commit/9ef1ac2f562036135c98400da3322b900a903aa8) exporter test (@chelm)
-- [39857ad](https://github.com/Esri/koop-server/commit/39857ad684af54e53c24fa806498609dd9f69524) Tasked will send the filename (@chelm)
-- [d781394](https://github.com/Esri/koop-server/commit/d781394dca60de8b07bd9c780a32a873eb7d252e) adding file name to zip contents for shpfiles (@chelm)
-- [8063e1f](https://github.com/Esri/koop-server/commit/8063e1fb96fb057be42617a3bc11058d961eeaf2) delint before testing (@chelm)
-- [3479345](https://github.com/Esri/koop-server/commit/3479345bab7c400e051d72ed5e0e92fece2f5cff) delinting the entire repo (@chelm)
-- [1dbac72](https://github.com/Esri/koop-server/commit/1dbac72880c6e6eaa040f9d5ecbfa50fa4fc9846) fixing package (@chelm)
-- [2c9d70a](https://github.com/Esri/koop-server/commit/2c9d70ae330a1ef4d0e5f5d0f6352b9786b7b7f3) missing test dep (@chelm)
-- [d02f1ac](https://github.com/Esri/koop-server/commit/d02f1acf28cc5f04a42b94721ef1e1478d2e6215) adding missing packages (@chelm)
-- [706b4d8](https://github.com/Esri/koop-server/commit/706b4d849d5d584bb400f9d15410d963f205ac7a) version up (@chelm)
-- [5212863](https://github.com/Esri/koop-server/commit/5212863dc5561d32c4e213424e315e5900473925) add support for NaN x y values from service (@chelm)
-- [1c16d9f](https://github.com/Esri/koop-server/commit/1c16d9f9cc03161e8f5c070d9b4d2a5541bd2d90) sanitizing info inserts (@chelm)
-- [881bbaf](https://github.com/Esri/koop-server/commit/881bbaf87bfc6ce7048005743b9432e8b6fe5676) sanitizing info inserts (@chelm)
-- [8311891](https://github.com/Esri/koop-server/commit/8311891bc1a7a4b6a887e701bfc217fccbaa884b) version up (@chelm)
-- [9e6c2e6](https://github.com/Esri/koop-server/commit/9e6c2e6889df300f2c3e1788d5cdedf456177698) fix for null geom in ogr2ogr (@chelm)
-- [622090d](https://github.com/Esri/koop-server/commit/622090de5aa2be633cf305459b550923eae52ef8) added a check in exporter for existing file that was causing downloads for large data to fail when the UI polls for the file (@chelm)
-- [a776c9b](https://github.com/Esri/koop-server/commit/a776c9bfb8ce808b1ba177bfb8659ddae9f21d69) up version (@chelm)
-- [8251b86](https://github.com/Esri/koop-server/commit/8251b86c49d23f50f47dd45a50718dd1bb4a669f) adding x y only for points (@chelm)
-- [a17a76c](https://github.com/Esri/koop-server/commit/a17a76c3d84aeb99286f4261e8f2bffd9380fec3) enforcing filters on paged data in tasker (@chelm)
-- [3268783](https://github.com/Esri/koop-server/commit/326878355c01e097738efd0fe4945e0091bda9c4) version .0.30 (@chelm)
-- [f64faac](https://github.com/Esri/koop-server/commit/f64faac71e0a7cef782557060beeda20ded1f61f) fixing geojson output (@chelm)
-- [abf6d10](https://github.com/Esri/koop-server/commit/abf6d10e5751108d1281b1e977adce08e96265d9) up version (@chelm)
-- [0ae855f](https://github.com/Esri/koop-server/commit/0ae855f31242e4bad0fddc3ac0b35cf7b6653b75) added Geojson from CSV (@chelm)
-- [6cefb19](https://github.com/Esri/koop-server/commit/6cefb195867e8b1570fa2753bc48453dcdff4972) adding encoding to exports for utf8 chars (@chelm)
-- [769cc53](https://github.com/Esri/koop-server/commit/769cc53e72785ef3a314cea98b4b2f2946945879) adding encoding to exports for utf8 chars (@chelm)
-- [65ed5a4](https://github.com/Esri/koop-server/commit/65ed5a4a2aaacd11142fd96ea20866fafc6a3e25) fixes for peechee (@chelm)
-- [5b44069](https://github.com/Esri/koop-server/commit/5b440699fda075a81ffc8930206413f36252c21a) fixing s3 uploads (@chelm)
-- [0e07e0f](https://github.com/Esri/koop-server/commit/0e07e0fc75cd88b770e5218b0426e6c223a48ac4) fixes for peechee (@chelm)
-- [e38c60f](https://github.com/Esri/koop-server/commit/e38c60f6eded13361809daea253603b687dee714) fix for stale files on disk (@chelm)
-- [caf93e6](https://github.com/Esri/koop-server/commit/caf93e6f252c3bce26cebc94036c726f923017af) fixed mapnik issues for tiles and thumbs (@chelm)
-- [57973d2](https://github.com/Esri/koop-server/commit/57973d2be3455a2cc9a9ac16a2ff79479b955e6e) fixed mapnik issues for tiles and thumbs (@chelm)
-- [3f66448](https://github.com/Esri/koop-server/commit/3f66448762c39e58a610aee6f91dd4b1091ca571) rm info from json (@chelm)
-- [37cf4b4](https://github.com/Esri/koop-server/commit/37cf4b459503a804351d96c27e2101c81439dcd8) version up (@chelm)
-- [b297cb0](https://github.com/Esri/koop-server/commit/b297cb034ec6e51d2551a70d28ede97f667cee2e) fix missing geom (@chelm)
-- [0d406df](https://github.com/Esri/koop-server/commit/0d406df7286dc1aa448ca7bfb00ea1158e935eb4) version up (@chelm)
-- [1e0dc50](https://github.com/Esri/koop-server/commit/1e0dc5003d5d3e2b2820ecbe210220357938f6dc) switch to mapnik (@chelm)
-- [d41d974](https://github.com/Esri/koop-server/commit/d41d974e6cad84dcae6a451e10ff32824db2c025) adding geom cols to csv; fixing missing geom exports (@chelm)
-- [8181f19](https://github.com/Esri/koop-server/commit/8181f19f35d23c1476cdb9be4956696f06297630) fixing version (@chelm)
-- [a0877e8](https://github.com/Esri/koop-server/commit/a0877e88c1387c3cade4db54165509c81325c4e7) saving retrieved_at field (@chelm)
-- [a9807d0](https://github.com/Esri/koop-server/commit/a9807d01c3bda0a8bca5902227ec52192a5f0601) up version (@chelm)
-- [44c9f59](https://github.com/Esri/koop-server/commit/44c9f59a1e05951e0fe3dcb0060b07e44bd569d4) adding filters to the DB (@chelm)
-- [948c9bc](https://github.com/Esri/koop-server/commit/948c9bcaa223165c27d0cfedfcff3cf2afa238c4) adding log for ogr2ogr (@chelm)
-- [ee8f500](https://github.com/Esri/koop-server/commit/ee8f500466e0a6cf437f97b9a628ac6b75e81001) adding log for ogr2ogr (@chelm)
-- [8a27bd2](https://github.com/Esri/koop-server/commit/8a27bd2784366ddd7f96457eb65e213268efb8fe) remove console (@chelm)
-- [84048b5](https://github.com/Esri/koop-server/commit/84048b53f111013f5cbb7fb151bc9b3b40c0f792) remove info from json files on disk (@chelm)
-- [ad5237d](https://github.com/Esri/koop-server/commit/ad5237d739b8a6fee546dbab3c77fd0366721fe1) up version (@chelm)
-- [5432648](https://github.com/Esri/koop-server/commit/54326480f82442e906311a1434753312142c58d4) updating exporter to support geojson extensions (@chelm)
-- [f0df349](https://github.com/Esri/koop-server/commit/f0df3491a5b6d4b672f558cff61cd87f1dcfa027) send info when we have info (@chelm)
-- [ad7ac8e](https://github.com/Esri/koop-server/commit/ad7ac8e3a7116020fa16fc3c2e3a0f0f30039842) fixing fs output (@chelm)
-- [79bc2b4](https://github.com/Esri/koop-server/commit/79bc2b4bf3b5474fa2a2996ac3c0471bc5cc23f9) fixing fs output (@chelm)
-- [38e9f3a](https://github.com/Esri/koop-server/commit/38e9f3a0caf6478e0fd39d0b37437a5c3b778b1d) up npm version (@chelm)
-- [be50c0d](https://github.com/Esri/koop-server/commit/be50c0d8a575691c5b818a02d13138729e9885c4) saving info metadata on json caches (@chelm)
-- [64717da](https://github.com/Esri/koop-server/commit/64717dade4cf8da91d8da571d6adba6a8065e02d) fixed paging with tasker export (@chelm)
-- [fbe5863](https://github.com/Esri/koop-server/commit/fbe58633fa5ac8b9c513737cf8fce621368ade16) fixed paging with tasker export (@chelm)
-- [c3a5d5a](https://github.com/Esri/koop-server/commit/c3a5d5a5b2108e54db84e3c03c60922072f5fea4) version (@chelm)
-- [3ce32a3](https://github.com/Esri/koop-server/commit/3ce32a3fb30e94210a1e97e1b4d76729014e8bc8) rm console (@chelm)
-- [48f2a09](https://github.com/Esri/koop-server/commit/48f2a09538bcab6395b2a52e3e3f06547dff3541) support for url-only (@chelm)
-- [0d8a1f9](https://github.com/Esri/koop-server/commit/0d8a1f973948501ac5322bf765ba99a6a26fa098) package change (@chelm)
-- [b6e7912](https://github.com/Esri/koop-server/commit/b6e79120130f832b427d1a678e60a2898cdf0d47) package change (@chelm)
-- [d565774](https://github.com/Esri/koop-server/commit/d565774f4b3fab81930ce3d9c90bb54d7e9d74a1) version (@chelm)
-- [d7f0613](https://github.com/Esri/koop-server/commit/d7f06139fb1f4976cb3c6436b541a3c822d77b9a) removing all localfiles on cache remove (@chelm)
-- [0130e01](https://github.com/Esri/koop-server/commit/0130e01ef0e437714673508994211fda4b94b26c) version up (@chelm)
-- [0388383](https://github.com/Esri/koop-server/commit/038838365aec3454aa7697d7ff3095e977598ecb) adding a default layer name when not present (@chelm)
-- [ee440b9](https://github.com/Esri/koop-server/commit/ee440b9b79bbdf7b090f1d392a501b924351e099) fixed style lookup (@chelm)
-- [08700d2](https://github.com/Esri/koop-server/commit/08700d2f5119403186a7b9f61f239578a7957ee1) fixed style lookup (@chelm)
-- [64b1343](https://github.com/Esri/koop-server/commit/64b134339939ba213008ee0b92d0764f118c587e) upd version (@chelm)
-- [6b010f8](https://github.com/Esri/koop-server/commit/6b010f84c546173c9da8d393b660dbc04b1c560f) up version (@chelm)
-- [a6c8d6b](https://github.com/Esri/koop-server/commit/a6c8d6bdbf30c974c006c8f46076ce86f30ec18a) rm old views (@chelm)
-- [9b51eec](https://github.com/Esri/koop-server/commit/9b51eec0ca9f129c5c0983255bfb08ba501d7963) version upd (@chelm)
-- [2cdf72e](https://github.com/Esri/koop-server/commit/2cdf72e73896c53bcfb1d80bd546c88f942357ff) rm consoles (@chelm)
-- [becdcb1](https://github.com/Esri/koop-server/commit/becdcb1f1dd949011f7f88410da31e0e7dc7c7ec) updated version (@chelm)
-- [adabdb4](https://github.com/Esri/koop-server/commit/adabdb4acde96e65355be43277c6874984228b02) updated register fn (@chelm)
-- [dd3e339](https://github.com/Esri/koop-server/commit/dd3e339367dff521aabec42faf41102e8e2b9254) updating package (@chelm)
-- [edca849](https://github.com/Esri/koop-server/commit/edca849884f1445b14049e735a79fa73d7f73b9d) updating package (@chelm)
-- [a73ee4f](https://github.com/Esri/koop-server/commit/a73ee4f458c35fcc729b55f9abd27281c521ba35) remove public (@chelm)
-- [f7354a4](https://github.com/Esri/koop-server/commit/f7354a4d388170db70d3cc6b4b854f39f2a40c94) add license (@chelm)
-- [a7f1804](https://github.com/Esri/koop-server/commit/a7f1804322dbc5a51d34ad4caa93b779d9485f63) adding readme (@chelm)
-- [d86059f](https://github.com/Esri/koop-server/commit/d86059f33d159c2d3c24227955b33c9258c589f9) adding readme (@chelm)
-- [64c961b](https://github.com/Esri/koop-server/commit/64c961bca2eba9e1f60b32912b3024e3b051bcbf) npm test runs mocha (@chelm)
-- [8aa6317](https://github.com/Esri/koop-server/commit/8aa63179cc69750a26ecb0c265e9539251730cbc) tests all passing (@chelm)
-- [579946a](https://github.com/Esri/koop-server/commit/579946aeb248fa30874102d86062f69c7497d57d) rm node-mods (@chelm)
-- [286cd43](https://github.com/Esri/koop-server/commit/286cd43e67937784723607078c3abf44e307f416) adding all (@chelm)
-- [12e2803](https://github.com/Esri/koop-server/commit/12e2803f23ff39baf0d47af04ab24044d9111031) first commit (@chelm)
+  * new version
+  * spaces in ogr2ogr call are no good
+  * updating version
+  * making sure no json parts get put into zip files
+
+2014-11-11
+==========
+
+  * fixing status removal on delayed exports
+
+2014-11-09
+==========
+
+  * version 0.1.24
+  * feature service true as string check
+  * Merge branch 'jgravois-patch-gp'
+  * fixed console conflict
+  * dynamic rest info
+  * add POST
+
+2014-11-07
+==========
+
+  * updating version
+  * making sure tests all pass
+
+2014-11-05
+==========
+
+  * adding new change log
+  * upped version
+  * forcing options.name to be used over the hash key for saved export file names
+
+2014-11-04
+==========
+
+  * new version 0.1.22
+  * adding support rest info and services
+  * Merge pull request [#33](https://github.com/Esri/koop-server/issues/33) from jgravois/return-count-fix
+    fix for 'returnCountOnly'
+  * check for true as string
+  * version 0.1.21
+  * null values cast as strings in featureservice fields
+  * making csv geojson replace commas from big numbers
+
+2014-10-29
+==========
+
+  * new version
+  * making the sql lite lib actually work
+
+2014-10-28
+==========
+
+  * up version
+  * skipfailures in ogr2ogr
+
+2014-10-27
+==========
+
+  * reverting use of multigeoms
+
+2014-10-26
+==========
+
+  * upping version
+  * fixing csv geoms as points
+
+2014-10-22
+==========
+
+  * new version fixing point shapefiles
+
+2014-10-21
+==========
+
+  * status output fix
+  * better status sha
+  * version upgrade
+  * fixing geometry check with no data
+
+2014-10-20
+==========
+
+  * version 0.1.11
+  * fix multi point partial inserts
+  * better pg errors
+  * change /services to /providers
+  * adding a services endpoint to list registered services
+  * check for json before deleting info object
+
+2014-10-19
+==========
+
+  * up version
+  * adding lat long _deg to csv whitelist
+
+2014-10-15
+==========
+
+  * up version
+  * adding point geom check in for zip
+  * new version
+  * cleaning up the paths for s3 files
+  * new v
+  * making zip files with spaces in the name work
+  * version 0.1.5
+  * adding better s3 removal
+
+2014-10-14
+==========
+
+  * up version for lower mapnik support
+  * rolling back mapnik version
+  * up the version for error response on service get
+  * return an error on new db with no server type tables
+  * fixes tests
+  * new version
+  * adding status output to server
+  * fixing file tests and logs
+  * logging for exists on s3
+  * logging for removes from s3
+  * pass koop to files for logging
+  * tiles work
+  * tests passing, version 0.1.1
+  * removeDir now drops s3 data and subdirs
+  * remove git-rev
+  * adding verion output
+  * thumbs, tiles, and small exports working
+  * full test coverage on files
+  * adding fs wrapper test
+  * adding a central file system wrapper
+  * test passing
+  * remove console
+  * version 0.1.0
+  * big rebase all fixed and good
+  * fixing base controller pattern
+  * tests passing with latest master merge
+  * adding debug to all routes
+  * adding basemodel
+  * adding log to the base model
+  * setting logging levels
+  * exporter logging to koop logger
+  * adding logger
+  * deglobal is essentially ready
+  * new loading pattern, cleaner
+  * tests passing
+  * using exec instead of spawn async
+  * fixing featureservice queries
+  * rm global config
+  * remove log
+  * tests all passing
+  * removing config
+  * working on the right inherit pattern
+  * no more global scope
+  * working on non-global pattern
