@@ -128,12 +128,6 @@ module.exports = function( config ) {
     process.exit();
   }
 
-  // if export workers are configured then we fork a child
-  if ( config.export_workers ){
-    child(__dirname+'/lib/ExportWorker.js', [JSON.stringify(config)]);
-  }
-
-
   return app;
 
 };
