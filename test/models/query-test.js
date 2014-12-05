@@ -82,6 +82,7 @@ describe('Query Model', function(){
 
     describe('when requesting data with outStatistics', function(){
       var snow = require('../fixtures/snow.geojson');
+
       it('should return an error when outStatistics params fails', function(done){
         Query.filter( snowData, { outStatistics : 'xx11xx' }, function( err, service ){
           err.should.not.equal(null);
@@ -91,16 +92,26 @@ describe('Query Model', function(){
       });
 
       /*it('should return json when outStatistics params is proper', function(done){
-        var snow = require('../fixtures/snow.geojson');
-        Query.outStatistics( snow, { outStatistics : '[{"statisticType": "min", "onStatisticField": "total precip","outStatisticFieldName":"min_precip"}]' }, function( err, service ){
-          //console.log( service );
-          err.should.equal(null);
-          //should.exist( service );
-          //service.fields.should.be.an.instanceOf(Array);
-          //service.features.should.be.an.instanceOf(Array);
+        var snow = require('../fixtures/snow2.geojson');
+        Query.outStatistics( snow[0], { outStatistics : '[{"statisticType": "min", "onStatisticField": "total precip","outStatisticFieldName":"min_precip"}]' }, function( err, service ){
+          should.not.exist( err );
+          should.exist( service );
+          service.fields.should.be.an.instanceOf(Array);
+          service.features.should.be.an.instanceOf(Array);
           done();
         });
       });*/
+
+      it( 'should return json when grouping stats by a field', function( done ){
+        var snow2 = require('../fixtures/snow2.geojson');
+        Query.outStatistics( snow2[0], { groupByFieldsForStatistics: 'total precip', outStatistics : '[{"statisticType": "min", "onStatisticField": "total precip", "outStatisticFieldName":"min_precip"}]' }, function( err, service ){
+          should.not.exist( err );
+          should.exist( service );
+          service.fields.should.be.an.instanceOf(Array);
+          service.features.should.be.an.instanceOf(Array);
+          done();
+        });
+      });
     });
 
 });
