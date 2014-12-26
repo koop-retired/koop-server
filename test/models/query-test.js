@@ -104,7 +104,7 @@ describe('Query Model', function(){
 
       it( 'should return json when grouping stats by a field', function( done ){
         var snow2 = require('../fixtures/snow2.geojson');
-        Query.outStatistics( snow2[0], { groupByFieldsForStatistics: 'total precip', outStatistics : '[{"statisticType": "min", "onStatisticField": "total precip", "outStatisticFieldName":"min_precip"}]' }, function( err, service ){
+        Query.outStatistics( snow2[0], { groupByFieldsForStatistics: 'total precip', outStatistics : '[{"statisticType": "count", "onStatisticField": "total precip", "outStatisticFieldName":"total_precip_COUNT"}]' }, function( err, service ){
           should.not.exist( err );
           should.exist( service );
           service.fields.should.be.an.instanceOf(Array);
