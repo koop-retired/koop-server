@@ -15,10 +15,10 @@ before(function (done) {
   // init the koop log based on config params 
   koop.log = new koop.Logger( config );
 
-  if (!config.db.test.postgis)
+  if (!config.db.postgis)
     done();
   else
-    PostGIS.connect(config.db.test.postgis.conn, function(){
+    PostGIS.connect(config.db.postgis.conn, function(){
       done();
     });
 
@@ -26,7 +26,7 @@ before(function (done) {
 });
 
 describe('PostGIS Model Tests', function(){
-    if (config.db.test.postgis) {
+    if (config.db.postgis) {
       describe('when caching a github file', function(){
 
         beforeEach(function(done){

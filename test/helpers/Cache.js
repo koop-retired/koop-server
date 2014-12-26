@@ -11,10 +11,10 @@ koop.log = new koop.Logger( config );
 
 var Cache = new DataCache( koop ); 
 
-if (config.db.test.postgis)
-  Cache.db = PostGIS.connect(config.db.test.postgis.conn);
-else if (config.db.test.sqlite)
-  Cache.db = SQLite.connect(config.db.test.sqlite);
+if (config.db.postgis)
+  Cache.db = PostGIS.connect(config.db.postgis.conn);
+else if (config.db.sqlite)
+  Cache.db = SQLite.connect(config.db.sqlite);
 
 Cache.db.log = koop.log;
 
