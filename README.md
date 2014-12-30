@@ -1,4 +1,11 @@
-# koop-server
+# koop-server - DEPRECATED
+
+----------------------
+
+This has been rolled back into the [koop](https://github.com/Esri/Koop) repo as it has now become its own NPM module. 
+
+-----------------------
+
 ## A Node.js module for [Koop](https://github.com/Esri/Koop) 
 
 koop-server is not meant to be run on its own. It provides the base models and utils needed to support the full [Koop](https://github.com/Esri/Koop) stack. This repo simply exposes an Express App that can be used as middleware within another Express app. This repo is meant to facilitate better modularity within Koop, and is used to test individual koop prodivers that are seperate NPM modules. 
