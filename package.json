@@ -1,15 +1,13 @@
 {
   "name": "koop-server",
-  "version": "0.1.45",
-  "description": "Guts of Koop",
+  "version": "0.1.46",
+  "description": "project deprecated - do not use",
   "main": "index.js",
   "scripts": {
     "test": "node_modules/jshint/bin/jshint lib/* && mocha test/models/ -t 20000",
     "lint": "node_modules/jshint/bin/jshint lib/*"
   },
-  "author": {
-    "name": "Chris Helm"
-  },
+  "author": "Chris Helm",
   "license": "Apache-2.0",
   "dependencies": {
     "async": "~0.9.0",
@@ -38,14 +36,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/Esri/koop-server.git"
+    "url": "git://github.com/koopjs/koop-server.git"
   },
-  "readmeFilename": "README.md",
   "bugs": {
-    "url": "https://github.com/Esri/koop-server/issues"
+    "url": "https://github.com/koopjs/koop-server/issues"
   },
-  "_id": "koop-server@0.0.4",
-  "_from": "koop-server@*",
   "devDependencies": {
     "gulp": "^3.8.8",
     "gulp-escomplex": "^1.0.0",
@@ -54,5 +49,6 @@
     "jshint": "~2.5.1",
     "jshint-stylish": "^0.4.0",
     "should": "~3.3.2"
-  }
+  },
+  "homepage": "https://github.com/koopjs/koop-server"
 }
