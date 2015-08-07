@@ -1,3 +1,9 @@
+# PROJECT DEPRECATED
+
+DO NOT USE
+
+Please use [Koop](https://www.npmjs.com/package/koop) v2 or greater instead.
+
 2014-11-12
 ==========
 
